@@ -1,0 +1,53 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dev utility scripts (not part of the app)
+map-images.js
+compress-images.js
+image_gallery.html
+rio-pipes-content-extract.md
+rio-pipes-image-assets.md
+"rio-pipes-implementation-prompt (1).md"
+
+# images are too large for GitHub HTTPS push (906 MB)
+# deploy via: npx vercel --prod  (uploads directly from local machine)
+public/images/
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

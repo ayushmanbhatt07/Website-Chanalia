@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Foundation — dark theme for premium e-commerce feel */
+  --color-rio-ink: #E0E0E0;
+  --color-rio-slate: #A0A0A0;
+  --color-rio-mute: #606060;
+  --color-rio-line: #3A3A3A;
+  --color-rio-paper: #0A0A0A;
+  --color-rio-surface: #1A1A1A;
+  --color-rio-sink: #2A2A2A;
+
+  /* Brand */
+  --color-rio-blue: #4A90E2;
+  --color-rio-blue-dark: #357AB8;
+  --color-rio-blue-tint: #E6F0FA;
+
+  /* Product-line accents */
+  --color-cat-cpvc: #D4A037;
+  --color-cat-upvc: #4A90E2;
+  --color-cat-swr: #7A8999;
+  --color-cat-agri: #6B8E23;
+
+  /* Dark section (footer, select bands) */
+  --color-rio-night: #050505;
+  --color-rio-night-2: #0F0F0F;
+  --color-rio-night-line: #1A1A1A;
+
+  /* Fonts */
+  --font-display: var(--font-display-var), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body-var), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-var), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-rio-paper);
+  color: var(--color-rio-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  color: var(--color-rio-ink);
+}
+
+/* Fluid type scale */
+.text-display-xl {
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.text-h2 {
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  font-weight: 700;
+}
+
+.text-h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: none; /* Sentence case, not ALL CAPS */
+}
+
+/* Mono for product codes, sizes, standards */
+.font-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Line length cap for body prose */
+.prose-width {
+  max-width: 68ch;
+}
+
+/* ── Focus ── */
+*:focus-visible {
+  outline: 2px solid var(--color-rio-blue);
+  outline-offset: 2px;
+}
+
+/* ── Table base (spec tables) ── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+}
+
+th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Zebra rows */
+tbody tr:nth-child(even) {
+  background-color: var(--color-rio-sink);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
