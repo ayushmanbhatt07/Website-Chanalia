@@ -8,9 +8,8 @@ rio-pipes-content-extract.md
 rio-pipes-image-assets.md
 "rio-pipes-implementation-prompt (1).md"
 
-# images are too large for GitHub HTTPS push (906 MB)
-# deploy via: npx vercel --prod  (uploads directly from local machine)
-public/images/
+# raw uncompressed camera asset duplicates (preserved outside git)
+public/images/client_assets/
 
 # dependencies
 /node_modules
