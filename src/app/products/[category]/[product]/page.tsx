@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
@@ -33,8 +33,8 @@ export async function generateMetadata({
   const product = getProductBySlug(slug);
   if (!product) return {};
   return {
-    title: product.name,
-    description: `${product.name} by RIO Pipes & Fittings. ${product.features.slice(0, 3).join('. ')}.`,
+    title: `${product.name} (${product.standard}) - RIO PIPES`,
+    description: `${product.name} manufactured by RIO Pipes & Fittings. ${product.features.slice(0, 3).join('. ')}.`,
   };
 }
 
@@ -61,8 +61,8 @@ export default async function ProductDetailPage({
 
   return (
     <>
-      {/* ── Page Header ── */}
-      <section className="bg-[var(--color-rio-sink)] pt-28 pb-8 md:pt-32 md:pb-12">
+      {/* ── Breadcrumb Bar ── */}
+      <section className="bg-[#080B10] pt-28 pb-4 border-b border-white/[0.06]">
         <Container>
           <Breadcrumb items={[
             { label: 'Home', href: '/' },
@@ -73,8 +73,8 @@ export default async function ProductDetailPage({
         </Container>
       </section>
 
-      {/* ── Product Hero ── */}
-      <Section className="!pt-8">
+      {/* ── Product Hero Showcase ── */}
+      <Section className="!pt-8 !pb-10" bg="paper">
         <Reveal>
           <ProductHero
             name={product.name}
@@ -82,57 +82,99 @@ export default async function ProductDetailPage({
             sizeRange={sizeRange}
             image={product.image}
             accent={cat.accentHex}
+            categoryName={cat.name}
           />
         </Reveal>
       </Section>
 
-      {/* ── Features ── */}
+      {/* ── Features & Benefits ── */}
       <Section bg="sink">
-        <Reveal>
-          <Eyebrow accent={cat.accentHex}>Features & Benefits</Eyebrow>
-          <div className="mb-6" />
-          <FeatureList features={product.features} accent={cat.accentHex} />
-        </Reveal>
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-start">
+          <Reveal>
+            <Eyebrow accent={cat.accentHex}>Engineering Highlights</Eyebrow>
+            <h2 className="text-h2 font-[var(--font-display)] text-white mt-1 mb-4">
+              Material Standards & Reliability
+            </h2>
+            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+              Manufactured under strict ISO 9001:2015 quality surveillance. Engineered to eliminate thermal scaling, pressure drops, and premature failure across long commercial and domestic runs.
+            </p>
 
-        <Reveal delay={0.1}>
-          <div className="mt-8">
-            <Button href="/contact" className="w-full sm:w-auto">
-              Enquiry Now
-            </Button>
+            <div className="p-4 rounded-xl bg-slate-900/60 border border-white/[0.08] space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>Standard: {product.standard}</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>100% Virgin Polymer Composition</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>Full Material Test Certificate (MTC) Included</span>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <FeatureList features={product.features} accent={cat.accentHex} />
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* ── Specification Tables ── */}
+      <Section bg="paper">
+        <Reveal>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+              <Eyebrow accent={cat.accentHex}>Technical Data & Dimensions</Eyebrow>
+              <h2 className="text-h2 font-[var(--font-display)] text-white mt-1">
+                Dimensional Specifications
+              </h2>
+            </div>
+            <p className="text-xs font-mono text-slate-500">
+              All dimensions in mm / inches as specified
+            </p>
           </div>
         </Reveal>
-      </Section>
 
-      {/* ── Spec Tables ── */}
-      <Section>
-        <Reveal>
-          <Eyebrow accent={cat.accentHex}>Specifications</Eyebrow>
-          <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-8">
-            Technical Data
-          </h2>
-        </Reveal>
         <Reveal delay={0.1}>
-          <SpecTabs
-            tables={product.tables}
-            accent={cat.accentHex}
-          />
+          <div className="rounded-2xl border border-white/[0.08] overflow-hidden bg-slate-900/40 p-4 sm:p-6 backdrop-blur-md">
+            <SpecTabs
+              tables={product.tables}
+              accent={cat.accentHex}
+            />
+          </div>
         </Reveal>
       </Section>
 
       {/* ── Product Image Gallery ── */}
       {product.gallery && product.gallery.length > 0 && (
-        <Section bg="paper">
+        <Section bg="sink">
           <Reveal>
-            <Eyebrow accent={cat.accentHex}>Gallery</Eyebrow>
-            <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-8">
-              Product Images
+            <Eyebrow accent={cat.accentHex}>Visual Inspection</Eyebrow>
+            <h2 className="text-h2 font-heading text-white mt-1 mb-8">
+              Specimen Gallery
             </h2>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {product.gallery.map((img, i) => (
               <Reveal key={i} delay={i * 0.05}>
-                <div className="relative aspect-square rounded-lg overflow-hidden border border-[var(--color-rio-line)] bg-white group cursor-pointer">
-                  <Image src={img} alt={`${product.name} image ${i+1}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="stage-3d-box relative aspect-square rounded-2xl overflow-hidden border border-white/[0.1] bg-slate-950 group cursor-pointer">
+                  <div
+                    className="halo-3d-glow"
+                    style={{ backgroundColor: cat.accentHex }}
+                  />
+                  <Image
+                    src={img}
+                    alt={`${product.name} specimen ${i+1}`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover rounded-xl group-hover:scale-108 transition-transform duration-500 ease-out"
+                  />
+                  <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/[0.1] to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3.5">
+                    <span className="text-[11px] font-mono text-white font-semibold">Specimen #{i+1}</span>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -142,16 +184,28 @@ export default async function ProductDetailPage({
 
       {/* ── Related Products ── */}
       {related.length > 0 && (
-        <Section bg="sink">
+        <Section bg="paper">
           <Reveal>
-            <Eyebrow accent={cat.accentHex}>Related products</Eyebrow>
-            <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-8">
-              More in {cat.name}
-            </h2>
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <Eyebrow accent={cat.accentHex}>Related Fittings & Pipes</Eyebrow>
+                <h2 className="text-h2 font-[var(--font-display)] text-white mt-1">
+                  More in {cat.name}
+                </h2>
+              </div>
+              <Link
+                href={`/products/${cat.slug}`}
+                className="text-xs font-semibold flex items-center gap-1 hover:underline"
+                style={{ color: cat.accentHex }}
+              >
+                View category
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {related.map((p, i) => (
-              <Reveal key={p.slug} delay={i * 0.07}>
+            {related.slice(0, 6).map((p, i) => (
+              <Reveal key={p.slug} delay={i * 0.05}>
                 <ProductCard
                   name={p.name}
                   standard={p.standard}
@@ -166,24 +220,30 @@ export default async function ProductDetailPage({
       )}
 
       {/* ── Compact Contact Strip ── */}
-      <section className="border-t border-[var(--color-rio-line)] py-6">
-        <Container className="flex flex-wrap items-center justify-center gap-6">
-          <a
-            href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
-            className="flex items-center gap-2 text-sm text-[var(--color-rio-slate)] hover:text-[var(--color-rio-blue)] transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            {site.contact.phone}
-          </a>
-          <a
-            href={site.contact.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-[#25D366] hover:text-green-700 transition-colors"
-          >
-            <MessageCircle className="w-4 h-4" />
-            WhatsApp
-          </a>
+      <section className="border-t border-white/[0.08] bg-[#0A0F1D] py-8">
+        <Container className="flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <p className="text-sm font-bold text-white">Need contractor rate cards or custom dispatch?</p>
+            <p className="text-xs text-slate-400 font-mono">Reva Polyplast Sales Desk • Metoda G.I.D.C., Rajkot</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <a
+              href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
+              className="flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-white px-4 py-2 rounded-xl bg-slate-900 border border-white/[0.08]"
+            >
+              <Phone className="w-3.5 h-3.5 text-sky-400" />
+              {site.contact.phone}
+            </a>
+            <a
+              href={site.contact.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs font-bold text-black px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-md"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              Direct WhatsApp
+            </a>
+          </div>
         </Container>
       </section>
     </>

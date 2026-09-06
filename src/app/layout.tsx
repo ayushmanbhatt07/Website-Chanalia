@@ -6,19 +6,30 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StickyContactBar } from "@/components/layout/StickyContactBar";
 
-const display = localFont({
+// 1. Hammersmith One — Punchy, structural, modern industrial display font
+const hammersmith = localFont({
+  src: '../fonts/HammersmithOne-Regular.ttf',
+  variable: '--font-heading-var',
+  weight: '400',
+  display: 'swap',
+});
+
+// 2. Spectral — Prestigious editorial serif for engineering standards & certifications
+const spectral = localFont({
   src: '../fonts/Spectral-Bold.ttf',
   variable: '--font-display-var',
   weight: '700',
   display: 'swap',
 });
 
-const body = localFont({
+// 3. Jost — Clean, geometric modern sans for ultra-legible body copy
+const jost = localFont({
   src: '../fonts/Jost-VariableFont_wght.ttf',
   variable: '--font-body-var',
   display: 'swap',
 });
 
+// 4. IBM Plex Mono — Technical tabular data, dimensions, and schedules
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -61,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
+      className={`${hammersmith.variable} ${spectral.variable} ${jost.variable} ${mono.variable} h-full antialiased`}
     >
       <head>
         <script
