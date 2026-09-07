@@ -257,7 +257,7 @@ export default function HomePage() {
       />
 
       {/* ── Testimonials ── */}
-      <Section bg="sink">
+      <Section bg="sink" id="testimonials" className="max-md:scroll-mt-28">
         <TestimonialSection />
       </Section>
 
@@ -269,8 +269,11 @@ export default function HomePage() {
               text={dealerCta.heading}
               preset="Cinematic"
               as="h2"
-              className="text-h2 text-text-heading mb-3 font-heading uppercase"
+              className="hidden md:block text-h2 text-text-heading mb-3 font-heading uppercase"
             />
+            <h2 className="md:hidden text-h2 text-text-heading mb-3 font-heading uppercase">
+              {dealerCta.heading}
+            </h2>
             <p className="text-text-body text-sm mb-8 leading-relaxed font-body">
               {dealerCta.body}
             </p>

@@ -148,7 +148,7 @@ export function ScrollGallery() {
               </div>
 
               {/* Bottom Information */}
-              <div className="absolute bottom-6 left-6 right-6 z-10">
+              <div className="absolute bottom-6 left-6 right-6 z-10 max-md:[&_*]:[text-shadow:0_2px_8px_rgba(0,0,0,0.8)]">
                 <span className="text-xs font-mono uppercase tracking-widest text-text-body mb-1.5 block">
                   {slide.category}
                 </span>
