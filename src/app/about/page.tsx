@@ -7,12 +7,14 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Reveal } from '@/components/ui/Reveal';
 import { CTABand } from '@/components/ui/CTABand';
 import { Container } from '@/components/ui/Container';
+import { ScrollRevealText } from '@/components/effects/ScrollRevealText';
 import { aboutContent } from '@/content/about';
 import { images } from '@/content/images';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Founded in 2015 in Rajkot, RIO Pipes & Fittings by Reva Polyplast is a trusted manufacturer of CPVC, UPVC, SWR & Agricultural pipes and fittings.',
+  description:
+    'Learn about RIO Pipes & Fittings, manufactured by Reva Polyplast in Rajkot, Gujarat. Over 20 years of expertise in polymer piping solutions.',
 };
 
 const whyIcons = {
@@ -28,45 +30,54 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Page Header ── */}
-      <section className="bg-[var(--color-rio-sink)] pt-28 pb-12 md:pt-32 md:pb-16">
+      <section className="bg-[#080B10] pt-28 pb-12 md:pt-36 md:pb-16 border-b border-white/[0.06]">
         <Container>
-          <Breadcrumb items={[
-            { label: 'Home', href: '/' },
-            { label: 'About Us' },
-          ]} />
-          <h1 className="text-display-lg font-[var(--font-display)] text-[var(--color-rio-ink)] mt-4">
-            {pageHeader.heading}
-          </h1>
+          <Breadcrumb
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'About Us' },
+            ]}
+          />
+          <ScrollRevealText
+            text={pageHeader.heading}
+            preset="Cinematic"
+            as="h1"
+            className="text-display-lg font-heading text-white mt-4 uppercase"
+          />
         </Container>
       </section>
 
       {/* ── Company Story ── */}
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 items-start">
           <Reveal>
             <Eyebrow>{story.eyebrow}</Eyebrow>
-            <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-4">
-              {story.heading}
-            </h2>
-            <p className="text-[var(--color-rio-slate)] leading-relaxed mb-6 prose-width">
+            <ScrollRevealText
+              text={story.heading}
+              preset="Fade In Up"
+              as="h2"
+              className="text-h2 font-heading text-white mb-4 uppercase"
+            />
+            <p className="text-slate-300 leading-relaxed mb-6 prose-width font-body text-base sm:text-lg">
               {story.body}
             </p>
-            {/* No portrait available — request real photo from client */}
           </Reveal>
 
           {/* Founding facts */}
           <Reveal delay={0.1}>
-            <div className="bg-[var(--color-rio-sink)] rounded-lg p-6 space-y-4">
-              <h3 className="text-sm font-semibold text-[var(--color-rio-ink)] mb-3">At a Glance</h3>
+            <div className="bg-[#0A0F1D]/80 backdrop-blur-md rounded-2xl p-6 space-y-4 border border-white/[0.08] shadow-xl">
+              <h3 className="text-sm font-mono uppercase tracking-widest text-sky-400 font-semibold mb-3">
+                At a Glance
+              </h3>
               {[
                 { label: 'Founded', value: String(founding.year) },
                 { label: 'Location', value: founding.location },
                 { label: 'Entity', value: founding.entity },
                 { label: 'Managing Director', value: founding.md },
               ].map((fact) => (
-                <div key={fact.label} className="flex justify-between items-baseline gap-4">
-                  <span className="text-xs text-[var(--color-rio-mute)]">{fact.label}</span>
-                  <span className="text-sm font-data text-[var(--color-rio-ink)] text-right">{fact.value}</span>
+                <div key={fact.label} className="flex justify-between items-baseline gap-4 pb-2 border-b border-white/[0.04] last:border-b-0">
+                  <span className="text-xs text-slate-400 font-mono">{fact.label}</span>
+                  <span className="text-sm font-mono text-white text-right">{fact.value}</span>
                 </div>
               ))}
             </div>
@@ -78,29 +89,32 @@ export default function AboutPage() {
       <Section bg="sink">
         <Reveal>
           <Eyebrow>{mission.eyebrow}</Eyebrow>
-          <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-4">
-            {mission.heading}
-          </h2>
+          <ScrollRevealText
+            text={mission.heading}
+            preset="Cinematic"
+            as="h2"
+            className="text-h2 font-heading text-white mb-4 uppercase"
+          />
         </Reveal>
 
         {/* Pull quote */}
         <Reveal delay={0.1}>
-          <blockquote className="text-display-lg font-[var(--font-display)] text-[var(--color-rio-blue)] my-10 text-center italic">
+          <blockquote className="text-display-lg font-heading text-sky-400 my-10 text-center tracking-wider uppercase">
             &ldquo;{mission.pullQuote}&rdquo;
           </blockquote>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Reveal delay={0.15}>
-            <div className="p-6 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
-              <h3 className="text-h3 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-3">Our Mission</h3>
-              <p className="text-sm text-[var(--color-rio-slate)] leading-relaxed">{mission.mission}</p>
+            <div className="p-8 rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/80 backdrop-blur-md shadow-xl">
+              <h3 className="text-2xl font-heading text-white mb-3 tracking-wide uppercase">Our Mission</h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-body">{mission.mission}</p>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="p-6 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
-              <h3 className="text-h3 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-3">Our Vision</h3>
-              <p className="text-sm text-[var(--color-rio-slate)] leading-relaxed">{mission.vision}</p>
+            <div className="p-8 rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/80 backdrop-blur-md shadow-xl">
+              <h3 className="text-2xl font-heading text-white mb-3 tracking-wide uppercase">Our Vision</h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-body">{mission.vision}</p>
             </div>
           </Reveal>
         </div>
@@ -110,9 +124,12 @@ export default function AboutPage() {
       <Section>
         <Reveal>
           <Eyebrow>{whyChooseUs.eyebrow}</Eyebrow>
-          <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-10">
-            {whyChooseUs.heading}
-          </h2>
+          <ScrollRevealText
+            text={whyChooseUs.heading}
+            preset="Fade In Up"
+            as="h2"
+            className="text-h2 font-heading text-white mb-10 uppercase"
+          />
         </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -120,14 +137,14 @@ export default function AboutPage() {
             const Icon = whyIcons[item.icon];
             return (
               <Reveal key={item.title} delay={i * 0.07}>
-                <div className="p-5 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
-                  <div className="w-10 h-10 rounded-lg bg-[var(--color-rio-blue-tint)] flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[var(--color-rio-blue)]" />
+                <div className="p-6 rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/60 hover:bg-[#0A0F1D]/90 transition-all hover:border-sky-500/30 group">
+                  <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-sky-400" />
                   </div>
-                  <h3 className="text-h3 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-2">
+                  <h3 className="text-xl font-heading text-white mb-2 uppercase tracking-wide">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[var(--color-rio-slate)] leading-relaxed">
+                  <p className="text-sm text-slate-400 leading-relaxed font-body">
                     {item.body}
                   </p>
                 </div>
@@ -139,26 +156,26 @@ export default function AboutPage() {
 
       {/* ── Manufacturing ── */}
       <section className="relative py-24 md:py-32 overflow-hidden">
-        {/* STOCK IMAGERY — replace with real facility photo when supplied */}
         <Image
           src={images.facility.production}
           alt="Factory floor with machinery and conveyor"
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover brightness-[0.35] contrast-[1.1]"
         />
-        <div className="absolute inset-0 bg-[var(--color-rio-night)]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080B10] via-transparent to-[#080B10]" />
         <Container className="relative z-10">
           <Reveal>
-            <div className="max-w-xl">
-              <Eyebrow accent="#FFFFFF">Manufacturing</Eyebrow>
-              <h2 className="text-h2 font-[var(--font-display)] text-white mb-4">
-                Advanced Manufacturing Facility
-              </h2>
-              <p className="text-gray-300 leading-relaxed">
-                Our state-of-the-art manufacturing facility in Rajkot, Gujarat produces high-quality
-                polymer-based piping solutions that meet international standards and rigorous quality
-                benchmarks.
+            <div className="max-w-2xl">
+              <Eyebrow accent="#38BDF8">Infrastructure Excellence</Eyebrow>
+              <ScrollRevealText
+                text="Advanced Extrusion Facility in Rajkot"
+                preset="Cinematic"
+                as="h2"
+                className="text-display-lg font-heading text-white mb-4 uppercase"
+              />
+              <p className="text-slate-300 leading-relaxed text-base sm:text-lg font-body">
+                Our state-of-the-art manufacturing infrastructure in Metoda G.I.D.C., Rajkot produces high-durability polymer-based piping solutions adhering strictly to BIS and ASTM standards with rigorous computer-monitored hydrostatic tests.
               </p>
             </div>
           </Reveal>
@@ -169,25 +186,28 @@ export default function AboutPage() {
       <Section bg="sink">
         <Reveal>
           <Eyebrow>Certifications</Eyebrow>
-          <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-8">
-            {standards.heading}
-          </h2>
+          <ScrollRevealText
+            text={standards.heading}
+            preset="Cinematic"
+            as="h2"
+            className="text-h2 font-heading text-white mb-8 uppercase"
+          />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="overflow-x-auto rounded-lg border border-[var(--color-rio-line)]">
+          <div className="overflow-x-auto rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/80 backdrop-blur-md">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-[var(--color-rio-blue)]">
-                  <th className="px-4 py-3 text-xs font-semibold text-[var(--color-rio-ink)] bg-[var(--color-rio-surface)]">Standard</th>
-                  <th className="px-4 py-3 text-xs font-semibold text-[var(--color-rio-ink)] bg-[var(--color-rio-surface)]">Applies To</th>
+                <tr className="border-b border-white/[0.1] bg-[#0F172A]">
+                  <th className="px-5 py-3.5 text-xs font-mono font-semibold text-slate-400">Standard</th>
+                  <th className="px-5 py-3.5 text-xs font-mono font-semibold text-slate-200">Applies To</th>
                 </tr>
               </thead>
               <tbody>
                 {standards.items.map((item, i) => (
-                  <tr key={item.standard} className={i % 2 === 1 ? 'bg-[var(--color-rio-sink)]' : ''}>
-                    <td className="px-4 py-2.5 text-sm font-medium">{item.standard}</td>
-                    <td className="px-4 py-2.5 text-sm text-[var(--color-rio-slate)]">{item.appliesTo}</td>
+                  <tr key={item.standard} className={i % 2 === 1 ? 'bg-white/[0.015]' : ''}>
+                    <td className="px-5 py-3 text-sm font-mono text-sky-400 font-semibold">{item.standard}</td>
+                    <td className="px-5 py-3 text-sm text-slate-300 font-body">{item.appliesTo}</td>
                   </tr>
                 ))}
               </tbody>
@@ -197,17 +217,17 @@ export default function AboutPage() {
 
         <Reveal delay={0.15}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
-            <div className="p-5 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
-              <p className="text-xs text-[var(--color-rio-mute)] mb-1">Warranty (UPVC & CPVC)</p>
-              <p className="text-lg font-[var(--font-display)] font-bold text-[var(--color-rio-ink)]">{standards.warranty.upvcCpvc}</p>
+            <div className="p-6 rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/80">
+              <p className="text-xs font-mono text-slate-400 uppercase mb-1">Warranty (UPVC & CPVC)</p>
+              <p className="text-2xl font-heading text-white tracking-wider">{standards.warranty.upvcCpvc}</p>
             </div>
-            <div className="p-5 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
-              <p className="text-xs text-[var(--color-rio-mute)] mb-1">Warranty (SWR & Agriculture)</p>
-              <p className="text-lg font-[var(--font-display)] font-bold text-[var(--color-rio-ink)]">{standards.warranty.swrAgri}</p>
+            <div className="p-6 rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/80">
+              <p className="text-xs font-mono text-slate-400 uppercase mb-1">Warranty (SWR & Agriculture)</p>
+              <p className="text-2xl font-heading text-white tracking-wider">{standards.warranty.swrAgri}</p>
             </div>
-            <div className="p-5 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
-              <p className="text-xs text-[var(--color-rio-mute)] mb-1">Service Temperature</p>
-              <p className="text-sm font-data text-[var(--color-rio-ink)]">
+            <div className="p-6 rounded-2xl border border-white/[0.08] bg-[#0A0F1D]/80">
+              <p className="text-xs font-mono text-slate-400 uppercase mb-1">Service Temperature</p>
+              <p className="text-sm font-mono text-slate-300">
                 CPVC: {standards.temperatures.cpvc}<br />
                 UPVC: {standards.temperatures.upvc}
               </p>
@@ -223,12 +243,6 @@ export default function AboutPage() {
         body={ctaBand.body}
         cta={ctaBand.cta}
       />
-
-      {/* NOTE: Team section removed — the old site used 100% stock-photo placeholders
-          with the job title "Vapers". Leave this commented-out stub for when real staff
-          data arrives from the client.
-          <TeamSection members={[]} />
-      */}
     </>
   );
 }

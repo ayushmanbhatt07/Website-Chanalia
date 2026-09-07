@@ -92,7 +92,7 @@ export default async function ProductDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-start">
           <Reveal>
             <Eyebrow accent={cat.accentHex}>Engineering Highlights</Eyebrow>
-            <h2 className="text-h2 font-[var(--font-display)] text-white mt-1 mb-4">
+            <h2 className="text-h2 font-heading text-white mt-1 mb-4 uppercase tracking-wide">
               Material Standards & Reliability
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -127,7 +127,7 @@ export default async function ProductDetailPage({
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
               <Eyebrow accent={cat.accentHex}>Technical Data & Dimensions</Eyebrow>
-              <h2 className="text-h2 font-[var(--font-display)] text-white mt-1">
+              <h2 className="text-h2 font-heading text-white mt-1 uppercase tracking-wide">
                 Dimensional Specifications
               </h2>
             </div>
@@ -189,7 +189,7 @@ export default async function ProductDetailPage({
             <div className="flex items-center justify-between mb-8">
               <div>
                 <Eyebrow accent={cat.accentHex}>Related Fittings & Pipes</Eyebrow>
-                <h2 className="text-h2 font-[var(--font-display)] text-white mt-1">
+                <h2 className="text-h2 font-heading text-white mt-1 uppercase tracking-wide">
                   More in {cat.name}
                 </h2>
               </div>

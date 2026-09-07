@@ -29,16 +29,21 @@
   --color-rio-night-line: #1F2937;
 
   /* Fonts */
-  --font-heading: var(--font-heading-var), 'Hammersmith One', sans-serif;
-  --font-display: var(--font-display-var), 'Spectral', serif;
+  --font-heading: var(--font-heading-var), 'Bebas Neue', sans-serif;
+  --font-display: var(--font-heading-var), 'Bebas Neue', sans-serif;
   --font-body: var(--font-body-var), 'Jost', sans-serif;
   --font-mono: var(--font-mono-var), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* ── Base ── */
 html {
-  scroll-behavior: smooth;
   color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -52,7 +57,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(56, 189, 248, 0.3);
+  background-color: rgba(56, 189, 248, 0.35);
   color: #FFFFFF;
 }
 
@@ -75,17 +80,20 @@ body {
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.15;
+  line-height: 1.05;
   color: var(--color-rio-ink);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .font-heading {
   font-family: var(--font-heading);
+  letter-spacing: 0.03em;
 }
 
 .font-display {
   font-family: var(--font-display);
+  letter-spacing: 0.03em;
 }
 
 .font-body {
@@ -95,29 +103,38 @@ h1, h2, h3, h4, h5, h6 {
 /* Fluid type scale */
 .text-display-xl {
   font-family: var(--font-heading);
-  font-size: clamp(2.75rem, 6vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
 }
 
 .text-display-lg {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .text-h2 {
   font-family: var(--font-heading);
-  font-size: clamp(1.625rem, 3vw, 2.25rem);
-  font-weight: 700;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  text-transform: uppercase;
 }
 
 .text-h3 {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .text-body-lg {
@@ -130,10 +147,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-eyebrow {
-  font-family: var(--font-heading);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -156,19 +173,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── 3D & Glassmorphic Utilities ── */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 /* 3D Floating Stage with Radial Backlight Blur */
@@ -177,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 1.25rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(15, 23, 42, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(15, 23, 42, 0.85) 100%);
   box-shadow: 
     0 20px 40px -15px rgba(0, 0, 0, 0.7),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);

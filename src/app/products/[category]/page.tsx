@@ -86,7 +86,7 @@ export default async function CategoryPage({
             </div>
 
             <h1
-              className="text-display-lg font-[var(--font-display)] text-white mb-4 leading-tight"
+              className="text-display-lg font-heading text-white mb-4 leading-tight uppercase tracking-wider"
             >
               {cat.name}
             </h1>
@@ -115,7 +115,7 @@ export default async function CategoryPage({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
               <Eyebrow accent={cat.accentHex}>Cataloged Products</Eyebrow>
-              <h2 className="text-h2 font-[var(--font-display)] text-white mt-1">
+              <h2 className="text-h2 font-heading text-white mt-1 uppercase tracking-wide">
                 {products.length} Products & Fitting Types
               </h2>
             </div>
