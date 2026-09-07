@@ -63,7 +63,7 @@ export function HeroSection() {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative min-h-[100svh] lg:min-h-screen w-full flex items-center justify-center overflow-hidden pt-28 pb-20 lg:pt-24 lg:pb-16 bg-[#080B10]">
+    <section className="relative min-h-[100svh] lg:min-h-screen w-full flex items-start justify-start overflow-hidden pt-32 lg:pt-40 pb-20 lg:pb-16 bg-[#080B10]">
       {/* Background Image Carousel with Zoom & Fade */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -100,7 +100,7 @@ export function HeroSection() {
       />
 
       {/* Main Hero Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col items-start text-left">
         {/* Animated Eyebrow Badge */}
         <motion.div
           key={`tag-${currentSlide}`}
@@ -124,10 +124,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-6 max-w-4xl"
+          className="mb-6 max-w-3xl"
         >
           <h1 
-            className="font-heading text-[3.25rem] leading-[1] sm:text-7xl md:text-8xl lg:text-9xl sm:leading-[0.92] tracking-wider select-none"
+            className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] tracking-wider select-none"
             style={{ color: '#FFFFFF', textShadow: '0 2px 16px rgba(0,0,0,0.55)' }}
           >
             {slide.title}
@@ -144,7 +144,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-[#F1F3F5] text-base sm:text-lg md:text-xl font-body max-w-2xl leading-relaxed mb-8 sm:mb-10 text-balance px-2 sm:px-0"
+          className="text-[#F1F3F5] text-xs sm:text-sm md:text-base font-body max-w-xl leading-relaxed mb-6 sm:mb-8 text-balance px-2 sm:px-0"
           style={{ textShadow: '0 2px 16px rgba(0,0,0,0.55)' }}
         >
           {slide.description}
@@ -155,19 +155,19 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-14 w-full max-w-[320px] sm:max-w-none mx-auto"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 w-full max-w-[320px] sm:max-w-none mx-auto sm:mx-0"
         >
           <Link
             href="/products"
-            className="inline-flex justify-center items-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full bg-accent-primary hover:bg-accent-primary-hover text-white font-heading text-base sm:text-xl tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group font-bold w-full sm:w-auto"
+            className="inline-flex justify-center items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full bg-accent-primary hover:bg-accent-primary-hover text-white font-heading text-sm sm:text-base tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group font-bold w-full sm:w-auto"
           >
             <span>Explore 68+ Products</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
             href="/contact"
-            className="inline-flex justify-center items-center gap-2.5 px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white/[0.07] hover:bg-white/[0.14] text-white font-heading text-base sm:text-xl tracking-wider uppercase backdrop-blur-md border border-white/[0.16] hover:border-white/[0.3] transition-all duration-300 hover:scale-105 active:scale-95 w-full sm:w-auto"
+            className="inline-flex justify-center items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full bg-white/[0.07] hover:bg-white/[0.14] text-white font-heading text-sm sm:text-base tracking-wider uppercase backdrop-blur-md border border-white/[0.16] hover:border-white/[0.3] transition-all duration-300 hover:scale-105 active:scale-95 w-full sm:w-auto"
           >
             <span>Request Factory Quote</span>
           </Link>
@@ -176,7 +176,7 @@ export function HeroSection() {
             href={site.contact.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white font-mono text-sm transition-all shadow-md hover:shadow-lg"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white font-mono text-xs sm:text-sm transition-all shadow-md hover:shadow-lg"
           >
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span className="font-semibold">WhatsApp Enquiry</span>
@@ -184,7 +184,7 @@ export function HeroSection() {
         </motion.div>
 
         {/* Slide Progress Indicators */}
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center justify-start gap-3 mb-6 w-full">
           {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
@@ -200,7 +200,7 @@ export function HeroSection() {
         </div>
 
         {/* Feature Badges Footer Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl pt-6 border-t border-white/[0.08] text-left">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-3xl pt-6 border-t border-white/[0.08] text-left">
           <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.02]">
             <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
             <span className="text-xs font-mono text-slate-300">100% Virgin Polymer</span>
