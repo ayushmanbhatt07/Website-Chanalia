@@ -459,13 +459,120 @@ export function CategoryScrollShowcase() {
 
   return (
     <section className="relative bg-bg-outer-alt border-t border-b border-border">
-      {/* Outer Multi-Screen Scroll Driver */}
+      {/* ── MOBILE LAYOUT (Stack, no scroll hijacking) ── */}
+      <div className="block lg:hidden w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 space-y-16">
+        {/* Header */}
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg-inner border border-border text-[10px] sm:text-xs font-mono uppercase tracking-widest text-accent-primary font-semibold mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Engineered Product Categories</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl text-text-heading tracking-wider uppercase leading-tight">
+            Precision Polymer Solutions
+          </h2>
+        </div>
+
+        {/* Vertical Stack of Categories */}
+        <div className="space-y-16">
+          {SHOWCASE_STEPS.map((step, i) => {
+            const products = getProductsByCategory(step.slug as any);
+            return (
+              <div key={step.slug} className="flex flex-col gap-6">
+                {/* Visual Card */}
+                <div className="relative h-[300px] sm:h-[380px] w-full rounded-[2rem] overflow-hidden border border-border shadow-lg">
+                  <div className={`absolute inset-0 ${step.glowClass} blur-2xl pointer-events-none`} />
+                  <Image
+                    src={step.image}
+                    alt={step.name}
+                    fill
+                    className="object-cover object-center"
+                    sizes="100vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-outer-alt via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Floating Specs */}
+                  <div className="absolute bottom-4 left-4 right-4 p-4 sm:p-5 rounded-2xl bg-bg-inner/90 backdrop-blur-xl border border-border shadow-xl">
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-border/50">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: step.accentHex }} />
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-text-heading font-semibold">Factory Test Specs</span>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold" style={{ color: step.accentHex }}>RIO ORIGINAL</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-x-3 gap-y-3">
+                      <div>
+                        <span className="text-[9px] font-mono text-text-muted uppercase block mb-0.5">Temp Rating</span>
+                        <span className="text-[11px] sm:text-xs font-mono text-text-heading font-semibold truncate block">{step.specs.temp}</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] font-mono text-text-muted uppercase block mb-0.5">Pressure Class</span>
+                        <span className="text-[11px] sm:text-xs font-mono text-text-heading font-semibold truncate block">{step.specs.pressure}</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] font-mono text-text-muted uppercase block mb-0.5">Joint Type</span>
+                        <span className="text-[11px] sm:text-xs font-mono text-text-heading font-semibold truncate block">{step.specs.joint}</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] font-mono text-text-muted uppercase block mb-0.5">Service Life</span>
+                        <span className="text-[11px] sm:text-xs font-mono text-status-success font-semibold truncate block">{step.specs.life}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text Content */}
+                <div className="flex flex-col px-1 sm:px-2">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider border"
+                      style={{ borderColor: `${step.accentHex}40`, backgroundColor: `${step.accentHex}10`, color: step.accentHex }}
+                    >
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span>{step.standard}</span>
+                    </span>
+                    <span className="text-[10px] font-mono text-text-muted uppercase tracking-widest">{products.length} Products</span>
+                  </div>
+
+                  <h3 className="font-heading text-[2rem] leading-none sm:text-4xl text-text-heading tracking-wider uppercase mb-2">{step.name}</h3>
+                  <p className="text-[15px] sm:text-base font-medium mb-3 font-body leading-snug" style={{ color: step.accentHex }}>{step.tagline}</p>
+                  <p className="text-text-body text-[15px] sm:text-base font-body leading-relaxed mb-5">{step.description}</p>
+                  
+                  <div className="space-y-2 mb-6 border-l-2 pl-3 py-0.5" style={{ borderColor: `${step.accentHex}40` }}>
+                    {step.highlights.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-[13px] sm:text-sm text-text-body leading-snug">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: step.accentHex }} />
+                        <span className="font-body">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-stretch gap-3">
+                    <Link
+                      href={`/products/${step.slug}`}
+                      className="inline-flex justify-center items-center gap-2.5 px-6 py-4 rounded-full text-white font-heading text-base tracking-wider uppercase font-bold shadow-md w-full sm:w-auto transition-transform hover:scale-105 active:scale-95 group"
+                      style={{ backgroundColor: step.accentHex }}
+                    >
+                      <span>Explore {step.shortName} Catalog</span>
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                    <Link href="/products" className="inline-flex justify-center items-center px-6 py-4 rounded-full bg-bg-inner hover:bg-bg-inner-hover text-text-body border border-border font-heading text-base tracking-wider uppercase w-full sm:w-auto transition-colors">
+                      All Categories
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── DESKTOP LAYOUT (Sticky Scroll Driver) ── */}
       <div
         ref={containerRef}
-        className="relative h-[340vh]"
+        className="hidden lg:block relative lg:h-[340vh]"
       >
         {/* Sticky Full-Viewport Stage */}
-        <div className="sticky top-16 sm:top-20 lg:top-24 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] flex flex-col justify-between py-6 sm:py-8 overflow-hidden">
+        <div className="lg:sticky lg:top-24 h-[calc(100vh-4rem)] sm:h-[calc(100vh-5rem)] flex flex-col justify-between py-6 sm:py-8 overflow-hidden">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-between">
             {/* ── Top Header Strip with Interactive Segmented Bar Fill ── */}
             <div className="w-full pb-4 sm:pb-6">

@@ -221,10 +221,10 @@ export function PipeSystemSwitcher() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-2">
               <Link
                 href={activeSystem.href}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md"
+                className="inline-flex justify-center items-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md w-full sm:w-auto text-center"
                 style={{
                   backgroundColor: activeSystem.accent,
                   color: '#FFFFFF',
@@ -235,7 +235,7 @@ export function PipeSystemSwitcher() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-text-body hover:text-text-heading border border-border hover:bg-bg-inner-hover transition-colors"
+                className="inline-flex justify-center items-center gap-2 px-5 py-3.5 sm:py-3 rounded-xl text-sm font-semibold text-text-body hover:text-text-heading border border-border hover:bg-bg-inner-hover transition-colors w-full sm:w-auto text-center"
               >
                 Request Technical Data
               </Link>

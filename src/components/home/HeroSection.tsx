@@ -63,7 +63,7 @@ export function HeroSection() {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <section className="relative min-h-[92vh] lg:min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 pb-16 bg-[#080B10]">
+    <section className="relative min-h-[100svh] lg:min-h-screen w-full flex items-center justify-center overflow-hidden pt-28 pb-20 lg:pt-24 lg:pb-16 bg-[#080B10]">
       {/* Background Image Carousel with Zoom & Fade */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -107,7 +107,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/[0.12] text-xs font-mono tracking-widest uppercase mb-6 text-slate-200"
+          className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/[0.12] text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-6 text-slate-200"
         >
           <span
             className="w-2 h-2 rounded-full animate-pulse"
@@ -127,7 +127,7 @@ export function HeroSection() {
           className="mb-6 max-w-4xl"
         >
           <h1 
-            className="font-heading text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.92] tracking-wider select-none"
+            className="font-heading text-[3.25rem] leading-[1] sm:text-7xl md:text-8xl lg:text-9xl sm:leading-[0.92] tracking-wider select-none"
             style={{ color: '#FFFFFF', textShadow: '0 2px 16px rgba(0,0,0,0.55)' }}
           >
             {slide.title}
@@ -144,7 +144,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-[#F1F3F5] text-base sm:text-lg md:text-xl font-body max-w-2xl leading-relaxed mb-10 text-balance"
+          className="text-[#F1F3F5] text-base sm:text-lg md:text-xl font-body max-w-2xl leading-relaxed mb-8 sm:mb-10 text-balance px-2 sm:px-0"
           style={{ textShadow: '0 2px 16px rgba(0,0,0,0.55)' }}
         >
           {slide.description}
@@ -155,19 +155,19 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-14"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-14 w-full max-w-[320px] sm:max-w-none mx-auto"
         >
           <Link
             href="/products"
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-accent-primary hover:bg-accent-primary-hover text-white font-heading text-lg sm:text-xl tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group font-bold"
+            className="inline-flex justify-center items-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full bg-accent-primary hover:bg-accent-primary-hover text-white font-heading text-base sm:text-xl tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group font-bold w-full sm:w-auto"
           >
             <span>Explore 68+ Products</span>
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/[0.07] hover:bg-white/[0.14] text-white font-heading text-lg sm:text-xl tracking-wider uppercase backdrop-blur-md border border-white/[0.16] hover:border-white/[0.3] transition-all duration-300 hover:scale-105 active:scale-95"
+            className="inline-flex justify-center items-center gap-2.5 px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white/[0.07] hover:bg-white/[0.14] text-white font-heading text-base sm:text-xl tracking-wider uppercase backdrop-blur-md border border-white/[0.16] hover:border-white/[0.3] transition-all duration-300 hover:scale-105 active:scale-95 w-full sm:w-auto"
           >
             <span>Request Factory Quote</span>
           </Link>

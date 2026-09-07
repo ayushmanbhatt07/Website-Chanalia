@@ -14,7 +14,7 @@ export function TestimonialSection() {
       </h2>
 
       {/* Aggregate */}
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-8">
         <div className="flex items-center gap-1">
           {[...Array(5)].map((_, i) => (
             <Star
