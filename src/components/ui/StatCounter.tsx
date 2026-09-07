@@ -24,12 +24,12 @@ export function StatCounter({ label, value, suffix }: StatCounterProps) {
   if (value === null) return null;
 
   return (
-    <div ref={ref} className="text-center p-6 bg-rio-surface border border-rio-line rounded-xl hover:border-rio-blue transition-colors duration-300">
-      <div className="flex items-center justify-center font-display text-5xl font-bold text-rio-ink mb-2">
+    <div ref={ref} className="text-center p-6 bg-bg-inner border border-border rounded-xl hover:border-accent-primary transition-colors duration-300">
+      <div className="flex items-center justify-center font-display text-5xl font-bold text-text-heading mb-2">
         <motion.span>{displayValue}</motion.span>
-        {suffix && <span className="ml-1 text-rio-slate">{suffix}</span>}
+        {suffix && <span className="ml-1 text-text-muted">{suffix}</span>}
       </div>
-      <div className="text-sm font-medium text-rio-slate uppercase tracking-widest">{label}</div>
+      <div className="text-sm font-medium text-text-muted uppercase tracking-widest">{label}</div>
     </div>
   );
 }

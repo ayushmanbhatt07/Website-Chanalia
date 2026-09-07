@@ -81,24 +81,24 @@ export function QualityProcessTimeline() {
               onClick={() => setActiveStageId(stage.id)}
               className={`p-4 rounded-xl text-left transition-all duration-300 border flex items-center gap-3.5 ${
                 isActive
-                  ? 'bg-sky-500/10 border-sky-400/50 shadow-[0_0_24px_rgba(56,189,248,0.15)] text-white'
-                  : 'bg-slate-900/40 border-white/[0.06] hover:bg-white/[0.02] text-slate-400'
+                  ? 'bg-accent-primary/10 border-accent-primary/50 shadow-md text-text-heading'
+                  : 'bg-bg-inner border-border hover:bg-bg-inner-hover text-text-muted'
               }`}
             >
               <div
                 className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
                   isActive
-                    ? 'bg-sky-400 text-slate-950 font-bold'
-                    : 'bg-slate-800 text-slate-400'
+                    ? 'bg-accent-primary text-accent-primary-fg font-bold'
+                    : 'bg-bg-outer-alt text-text-muted'
                 }`}
               >
                 <Icon className="w-4 h-4" />
               </div>
               <div className="min-w-0">
-                <span className="text-[10px] font-mono text-slate-500 uppercase block">
+                <span className="text-[10px] font-mono text-text-muted uppercase block">
                   Stage 0{stage.id}
                 </span>
-                <p className="text-sm font-semibold truncate text-slate-200">
+                <p className="text-sm font-semibold truncate text-text-heading">
                   {stage.title}
                 </p>
               </div>
@@ -108,28 +108,28 @@ export function QualityProcessTimeline() {
       </div>
 
       {/* Active Stage Detailed Display */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0A0F1D]/80 backdrop-blur-xl p-6 sm:p-10 overflow-hidden shadow-2xl">
+      <div className="rounded-3xl border border-border bg-bg-inner/80 backdrop-blur-xl p-6 sm:p-10 overflow-hidden shadow-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs text-sky-400 font-mono mb-4 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-xs text-accent-primary font-mono mb-4 uppercase">
               Quality Assurance Milestone 0{activeStage.id}
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold font-[var(--font-display)] text-white mb-2">
+            <h3 className="text-2xl sm:text-3xl font-bold font-[var(--font-display)] text-text-heading mb-2">
               {activeStage.title}
             </h3>
-            <p className="text-sm text-sky-300 font-mono mb-4">{activeStage.tagline}</p>
-            <p className="text-slate-400 text-base leading-relaxed mb-6">
+            <p className="text-sm text-accent-primary font-mono mb-4">{activeStage.tagline}</p>
+            <p className="text-text-body text-base leading-relaxed mb-6">
               {activeStage.description}
             </p>
 
             {/* Metric Callout */}
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-white/[0.06] flex items-center justify-between mb-6">
+            <div className="p-4 rounded-xl bg-bg-outer-alt border border-border flex items-center justify-between mb-6">
               <div>
-                <p className="text-xs font-mono text-slate-500 uppercase">Benchmark</p>
-                <p className="text-xs font-medium text-slate-300 mt-0.5">{activeStage.metricLabel}</p>
+                <p className="text-xs font-mono text-text-muted uppercase">Benchmark</p>
+                <p className="text-xs font-medium text-text-heading mt-0.5">{activeStage.metricLabel}</p>
               </div>
-              <span className="text-xl sm:text-2xl font-bold font-mono text-sky-400">
+              <span className="text-xl sm:text-2xl font-bold font-mono text-accent-primary">
                 {activeStage.metric}
               </span>
             </div>
@@ -139,7 +139,7 @@ export function QualityProcessTimeline() {
               {activeStage.standards.map((std, i) => (
                 <span
                   key={i}
-                  className="px-3 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/[0.08] text-slate-300"
+                  className="px-3 py-1 rounded-md text-xs font-mono bg-bg-outer border border-border text-text-heading"
                 >
                   ✓ {std}
                 </span>
@@ -148,7 +148,7 @@ export function QualityProcessTimeline() {
           </div>
 
           {/* Right Column: Factory Image */}
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/[0.1] bg-slate-950">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-bg-inner">
             <Image
               src={activeStage.image}
               alt={activeStage.title}
@@ -156,10 +156,10 @@ export function QualityProcessTimeline() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-slate-950/70 backdrop-blur-md border border-white/[0.08] text-xs font-mono text-slate-300 flex items-center justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-bg-inner/70 backdrop-blur-md border border-border text-xs font-mono text-text-heading flex items-center justify-between">
               <span>Metoda G.I.D.C. Manufacturing Facility</span>
-              <span className="text-sky-400">Verified Process</span>
+              <span className="text-accent-primary">Verified Process</span>
             </div>
           </div>
         </div>

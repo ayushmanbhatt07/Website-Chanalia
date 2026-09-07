@@ -9,7 +9,7 @@ export function TestimonialSection() {
   return (
     <div>
       <Eyebrow>Testimonial</Eyebrow>
-      <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-rio-ink)] mb-2">
+      <h2 className="text-h2 font-[var(--font-display)] text-[var(--color-text-heading)] mb-2">
         Reviews From Customers
       </h2>
 
@@ -21,19 +21,19 @@ export function TestimonialSection() {
               key={i}
               className="w-4 h-4"
               fill={i < Math.round(aggregate.rating) ? '#FBBF24' : 'none'}
-              stroke={i < Math.round(aggregate.rating) ? '#FBBF24' : 'var(--color-rio-line)'}
+              stroke={i < Math.round(aggregate.rating) ? '#FBBF24' : 'var(--color-border)'}
             />
           ))}
         </div>
-        <span className="text-sm text-[var(--color-rio-slate)] font-medium">
+        <span className="text-sm text-[var(--color-text-body)] font-medium">
           {aggregate.rating} out of 5
         </span>
-        <span className="text-sm text-[var(--color-rio-mute)]">·</span>
+        <span className="text-sm text-[var(--color-text-muted)]">·</span>
         <a
           href={aggregate.googleListingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-[var(--color-rio-blue)] hover:underline inline-flex items-center gap-1"
+          className="text-sm text-[var(--color-accent-primary)] hover:underline inline-flex items-center gap-1"
         >
           {aggregate.totalReviews} Google reviews
           <ExternalLink className="w-3 h-3" />
@@ -44,25 +44,25 @@ export function TestimonialSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reviews.slice(0, 3).map((review, i) => (
           <Reveal key={i} delay={i * 0.07}>
-            <div className="p-5 rounded-lg border border-[var(--color-rio-line)] bg-[var(--color-rio-surface)]">
+            <div className="p-5 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-inner)]">
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(5)].map((_, si) => (
                   <Star
                     key={si}
                     className="w-3.5 h-3.5"
                     fill={si < review.rating ? '#FBBF24' : 'none'}
-                    stroke={si < review.rating ? '#FBBF24' : 'var(--color-rio-line)'}
+                    stroke={si < review.rating ? '#FBBF24' : 'var(--color-border)'}
                   />
                 ))}
               </div>
-              <p className="text-sm text-[var(--color-rio-slate)] mb-3 leading-relaxed">
+              <p className="text-sm text-[var(--color-text-body)] mb-3 leading-relaxed">
                 &ldquo;{review.text}&rdquo;
               </p>
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-[var(--color-rio-ink)]">
+                <span className="text-sm font-medium text-[var(--color-text-heading)]">
                   {review.name}
                 </span>
-                <span className="text-xs text-[var(--color-rio-mute)]">{review.age}</span>
+                <span className="text-xs text-[var(--color-text-muted)]">{review.age}</span>
               </div>
             </div>
           </Reveal>

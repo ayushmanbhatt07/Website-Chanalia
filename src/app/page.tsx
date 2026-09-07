@@ -53,20 +53,20 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ── Interactive Piping System Visualizer Centerpiece ── */}
-      <section className="relative bg-[#080B10] py-14 border-t border-white/[0.06] overflow-hidden">
+      <section className="relative bg-bg-outer-alt py-14 border-t border-border overflow-hidden">
         <Container>
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <span className="text-xs font-mono uppercase tracking-widest text-sky-400 font-semibold">
+              <span className="text-xs font-mono uppercase tracking-widest text-accent-primary font-semibold">
                 Interactive Engineering Matrix
               </span>
               <ScrollRevealText
                 text="Explore Complete Polymer Systems"
                 preset="Cinematic"
                 as="h2"
-                className="text-3xl sm:text-4xl text-white mt-1 font-heading tracking-wider uppercase"
+                className="text-3xl sm:text-4xl text-text-heading mt-1 font-heading tracking-wider uppercase"
               />
-              <p className="text-slate-400 text-sm mt-2">
+              <p className="text-text-muted text-sm mt-2">
                 Click across CPVC, UPVC, SWR, and Agricultural lines to inspect operating pressure, temperature, and ASTM/IS compliance ratings.
               </p>
             </div>
@@ -100,9 +100,9 @@ export default function HomePage() {
               text="Zero-Defect Quality Benchmark"
               preset="Blur Reveal"
               as="h2"
-              className="text-h2 text-white mt-1 mb-3 font-heading uppercase"
+              className="text-h2 text-text-heading mt-1 mb-3 font-heading uppercase"
             />
-            <p className="text-slate-400 text-sm">
+            <p className="text-text-muted text-sm">
               Every meter of pipe and every fitting manufactured at our Rajkot facility conforms to strict Bureau of Indian Standards (BIS) and ASTM protocols.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function HomePage() {
       <Section bg="paper">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <Reveal>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.1] shadow-2xl group">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-border shadow-2xl group">
               <Image
                 src={images.facility.production}
                 alt="Factory floor with machinery and conveyor"
@@ -125,15 +125,15 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080B10]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/[0.08]">
-                  <p className="text-[10px] font-mono uppercase text-slate-400">Total Factory Area</p>
-                  <p className="text-base font-bold font-mono text-white">45,000+ Sq. Ft.</p>
+                <div className="p-3 rounded-xl bg-bg-inner/80 backdrop-blur-md border border-border">
+                  <p className="text-[10px] font-mono uppercase text-text-muted">Total Factory Area</p>
+                  <p className="text-base font-bold font-mono text-text-heading">45,000+ Sq. Ft.</p>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/[0.08]">
-                  <p className="text-[10px] font-mono uppercase text-slate-400">Annual Capacity</p>
-                  <p className="text-base font-bold font-mono text-sky-400">12,000+ Metric Tons</p>
+                <div className="p-3 rounded-xl bg-bg-inner/80 backdrop-blur-md border border-border">
+                  <p className="text-[10px] font-mono uppercase text-text-muted">Annual Capacity</p>
+                  <p className="text-base font-bold font-mono text-accent-primary">12,000+ Metric Tons</p>
                 </div>
               </div>
             </div>
@@ -145,17 +145,17 @@ export default function HomePage() {
               text={about.heading}
               preset="Fade In Up"
               as="h2"
-              className="text-h2 text-white mt-1 mb-4 font-heading uppercase"
+              className="text-h2 text-text-heading mt-1 mb-4 font-heading uppercase"
             />
-            <p className="text-slate-300 leading-relaxed mb-6 prose-width font-body">
+            <p className="text-text-body leading-relaxed mb-6 prose-width font-body">
               {about.body}
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="p-4 rounded-xl bg-slate-900/40 border border-white/[0.06]">
+              <div className="p-4 rounded-xl bg-bg-inner border border-border">
                 <StatCounter value={20} suffix="+" label="Years of Manufacturing Trust" />
               </div>
-              <div className="p-4 rounded-xl bg-slate-900/40 border border-white/[0.06]">
+              <div className="p-4 rounded-xl bg-bg-inner border border-border">
                 <StatCounter value={68} suffix="+" label="Certified Piping SKUs" />
               </div>
             </div>
@@ -175,9 +175,9 @@ export default function HomePage() {
             text={benefits.heading}
             preset="Cinematic"
             as="h2"
-            className="text-h2 text-white mt-1 mb-2 font-heading uppercase"
+            className="text-h2 text-text-heading mt-1 mb-2 font-heading uppercase"
           />
-          <p className="text-slate-400 mb-10 prose-width text-sm font-body">
+          <p className="text-text-muted mb-10 prose-width text-sm font-body">
             {benefits.subtitle}
           </p>
         </Reveal>
@@ -189,9 +189,9 @@ export default function HomePage() {
 
             return (
               <Reveal key={item.title} delay={i * 0.05}>
-                <div className="p-5 rounded-2xl bg-[#0A0F1D]/60 border border-white/[0.06] hover:border-sky-500/30 flex flex-col items-center text-center transition-all group">
+                <div className="p-5 rounded-2xl bg-bg-inner-hover border border-border hover:border-accent-primary/30 flex flex-col items-center text-center transition-all group">
                   {bgImage ? (
-                    <div className="relative w-14 h-14 rounded-xl overflow-hidden mb-3 border border-white/[0.08]">
+                    <div className="relative w-14 h-14 rounded-xl overflow-hidden mb-3 border border-border">
                       <Image
                         src={bgImage}
                         alt={`${item.title} application`}
@@ -201,11 +201,11 @@ export default function HomePage() {
                       />
                     </div>
                   ) : (
-                    <div className="w-14 h-14 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mb-3">
-                      <Icon className="w-6 h-6 text-sky-400" />
+                    <div className="w-14 h-14 rounded-xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center mb-3">
+                      <Icon className="w-6 h-6 text-accent-primary" />
                     </div>
                   )}
-                  <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
+                  <span className="text-sm font-semibold text-text-heading group-hover:text-accent-primary transition-colors">
                     {item.title}
                   </span>
                 </div>
@@ -223,22 +223,22 @@ export default function HomePage() {
             text={whatWeDo.heading}
             preset="Fade In Up"
             as="h2"
-            className="text-h2 text-white mt-1 mb-10 font-heading uppercase"
+            className="text-h2 text-text-heading mt-1 mb-10 font-heading uppercase"
           />
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {whatWeDo.items.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.07}>
-              <div className="p-6 rounded-2xl bg-slate-900/30 border border-white/[0.06] flex gap-5 items-start hover:border-white/[0.12] transition-colors">
-                <span className="font-mono text-2xl font-bold text-sky-400/40 shrink-0 w-10">
+              <div className="p-6 rounded-2xl bg-bg-inner border border-border flex gap-5 items-start hover:border-[#B0B5BE] transition-colors">
+                <span className="font-mono text-2xl font-bold text-accent-primary/40 shrink-0 w-10">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <h3 className="text-xl font-bold font-heading text-white mb-2 uppercase tracking-wide">
+                  <h3 className="text-xl font-bold font-heading text-text-heading mb-2 uppercase tracking-wide">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed font-body">
+                  <p className="text-sm text-text-body leading-relaxed font-body">
                     {item.body}
                   </p>
                 </div>
@@ -264,17 +264,17 @@ export default function HomePage() {
       {/* ── Dealer CTA ── */}
       <Section bg="paper">
         <Reveal>
-          <div className="text-center max-w-xl mx-auto p-10 rounded-3xl border border-white/[0.08] bg-gradient-to-b from-slate-900/80 to-[#080B10] shadow-2xl">
+          <div className="text-center max-w-xl mx-auto p-10 rounded-3xl border border-border bg-bg-inner shadow-xl">
             <ScrollRevealText
               text={dealerCta.heading}
               preset="Cinematic"
               as="h2"
-              className="text-h2 text-white mb-3 font-heading uppercase"
+              className="text-h2 text-text-heading mb-3 font-heading uppercase"
             />
-            <p className="text-slate-400 text-sm mb-8 leading-relaxed font-body">
+            <p className="text-text-body text-sm mb-8 leading-relaxed font-body">
               {dealerCta.body}
             </p>
-            <Button href={dealerCta.cta.href} className="px-8 py-3.5 shadow-lg shadow-sky-500/20">
+            <Button href={dealerCta.cta.href} className="px-8 py-3.5 shadow-lg shadow-accent-primary/20">
               {dealerCta.cta.label}
             </Button>
           </div>

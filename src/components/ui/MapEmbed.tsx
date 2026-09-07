@@ -31,7 +31,7 @@ export function MapEmbed() {
             </span>
           </div>
           <h4 className="font-heading text-lg sm:text-xl text-white tracking-wide flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
+            <MapPin className="w-4 h-4 text-accent-primary shrink-0" />
             <span>Reva Polyplast — Metoda G.I.D.C., Rajkot</span>
           </h4>
           <p className="text-xs text-slate-400 font-body">
@@ -45,7 +45,7 @@ export function MapEmbed() {
             href={directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-heading text-sm tracking-wider uppercase transition-all font-semibold shadow-[0_0_20px_rgba(56,189,248,0.3)] hover:scale-105 active:scale-95"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-accent-primary hover:bg-accent-primary-hover text-white font-heading text-sm tracking-wider uppercase transition-all font-semibold shadow-md hover:scale-105 active:scale-95"
           >
             <Navigation className="w-3.5 h-3.5" />
             <span>Get Directions</span>
@@ -57,7 +57,7 @@ export function MapEmbed() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1] font-heading text-sm tracking-wider uppercase transition-all hover:scale-105 active:scale-95"
           >
-            <ExternalLink className="w-3.5 h-3.5 text-sky-400" />
+            <ExternalLink className="w-3.5 h-3.5 text-accent-primary" />
             <span>Open in Maps</span>
           </a>
 
@@ -65,7 +65,7 @@ export function MapEmbed() {
             href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
             className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.1] font-heading text-sm tracking-wider uppercase transition-all hover:scale-105 active:scale-95"
           >
-            <Phone className="w-3.5 h-3.5 text-sky-400" />
+            <Phone className="w-3.5 h-3.5 text-accent-primary" />
             <span>Call Desk</span>
           </a>
         </div>
@@ -77,8 +77,8 @@ export function MapEmbed() {
         {isLoading && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0B1120] z-10 transition-opacity duration-500">
             <div className="relative flex items-center justify-center mb-4">
-              <div className="w-14 h-14 rounded-2xl border-2 border-sky-400/30 border-t-sky-400 animate-spin" />
-              <MapPin className="w-6 h-6 text-sky-400 absolute" />
+              <div className="w-14 h-14 rounded-2xl border-2 border-accent-primary/30 border-t-accent-primary animate-spin" />
+              <MapPin className="w-6 h-6 text-accent-primary absolute" />
             </div>
             <p className="text-xs font-mono uppercase tracking-widest text-slate-300">
               Loading High-Resolution Factory Map...
@@ -109,7 +109,7 @@ export function MapEmbed() {
       {/* Footer Info Strip */}
       <div className="px-5 py-3 bg-[#070A0F]/80 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400 font-mono">
         <div className="flex items-center gap-2">
-          <Clock className="w-3.5 h-3.5 text-sky-400" />
+          <Clock className="w-3.5 h-3.5 text-accent-primary" />
           <span>Hours: {site.contact.hours}</span>
         </div>
         <div className="text-slate-500">

@@ -9,9 +9,9 @@ type SectionProps = {
 };
 
 const bgMap = {
-  paper: 'bg-[var(--color-rio-paper)]',
-  sink: 'bg-[var(--color-rio-sink)]',
-  night: 'bg-[var(--color-rio-night)] text-white',
+  paper: 'bg-bg-outer',
+  sink: 'bg-bg-inner border-y border-border',
+  night: 'bg-bg-outer-alt border-y border-border',
 };
 
 export function Section({ children, className, bg = 'paper', id }: SectionProps) {

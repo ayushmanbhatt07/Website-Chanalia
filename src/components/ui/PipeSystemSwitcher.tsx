@@ -107,7 +107,7 @@ export function PipeSystemSwitcher() {
   const activeSystem = SYSTEMS.find((s) => s.id === activeTab) || SYSTEMS[0];
 
   return (
-    <div className="w-full rounded-3xl border border-white/[0.08] bg-slate-950/60 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden">
+    <div className="w-full rounded-3xl border border-border bg-bg-inner/60 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden">
       {/* Dynamic Background Glow matching active accent */}
       <div
         className="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl opacity-20 pointer-events-none transition-colors duration-700"
@@ -119,7 +119,7 @@ export function PipeSystemSwitcher() {
       />
 
       {/* Interactive Tabs Header */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 border-b border-white/[0.08] no-scrollbar">
+      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 border-b border-border no-scrollbar">
         {SYSTEMS.map((system) => {
           const isActive = system.id === activeTab;
           return (
@@ -128,8 +128,8 @@ export function PipeSystemSwitcher() {
               onClick={() => setActiveTab(system.id)}
               className={`relative px-5 py-3 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-300 flex items-center gap-2.5 ${
                 isActive
-                  ? 'text-white shadow-lg'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.03]'
+                  ? 'text-text-heading shadow-md'
+                  : 'text-text-body hover:text-text-heading hover:bg-bg-inner-hover'
               }`}
               style={{
                 backgroundColor: isActive ? `${system.accent}20` : undefined,
@@ -178,15 +178,15 @@ export function PipeSystemSwitcher() {
               >
                 {activeSystem.badge}
               </span>
-              <span className="text-xs font-mono text-slate-500">
+              <span className="text-xs font-mono text-text-muted">
                 100% Quality Inspected
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold font-[var(--font-display)] text-white mb-2">
+            <h3 className="text-2xl sm:text-3xl font-bold font-[var(--font-display)] text-text-heading mb-2">
               {activeSystem.name}
             </h3>
-            <p className="text-slate-400 text-base mb-6 leading-relaxed">
+            <p className="text-text-body text-base mb-6 leading-relaxed">
               {activeSystem.tagline}
             </p>
 
@@ -198,7 +198,7 @@ export function PipeSystemSwitcher() {
                     className="w-5 h-5 shrink-0 mt-0.5"
                     style={{ color: activeSystem.accent }}
                   />
-                  <span className="text-sm text-slate-300 font-medium">{item}</span>
+                  <span className="text-sm text-text-body font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -208,12 +208,12 @@ export function PipeSystemSwitcher() {
               {activeSystem.specs.map((spec, i) => (
                 <div
                   key={i}
-                  className="p-3.5 rounded-xl bg-slate-900/50 border border-white/[0.06] backdrop-blur-md"
+                  className="p-3.5 rounded-xl bg-bg-inner border border-border backdrop-blur-md"
                 >
-                  <p className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-1">
+                  <p className="text-[11px] font-mono text-text-muted uppercase tracking-wider mb-1">
                     {spec.label}
                   </p>
-                  <p className="text-sm font-semibold text-slate-100 font-mono">
+                  <p className="text-sm font-semibold text-text-heading font-mono">
                     {spec.value}
                   </p>
                 </div>
@@ -224,10 +224,10 @@ export function PipeSystemSwitcher() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href={activeSystem.href}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-md"
                 style={{
                   backgroundColor: activeSystem.accent,
-                  color: '#080B10',
+                  color: '#FFFFFF',
                 }}
               >
                 Explore {activeSystem.name.split(' ')[0]} Catalog
@@ -235,7 +235,7 @@ export function PipeSystemSwitcher() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-300 hover:text-white border border-white/[0.12] hover:bg-white/[0.04] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-text-body hover:text-text-heading border border-border hover:bg-bg-inner-hover transition-colors"
               >
                 Request Technical Data
               </Link>
@@ -243,7 +243,7 @@ export function PipeSystemSwitcher() {
           </div>
 
           {/* Right Column: High-Res Specimen Visualizer */}
-          <div className="relative aspect-[4/3] lg:aspect-[5/4] rounded-2xl overflow-hidden border border-white/[0.12] bg-slate-900 group">
+          <div className="relative aspect-[4/3] lg:aspect-[5/4] rounded-2xl overflow-hidden border border-border bg-bg-inner group">
             <Image
               src={activeSystem.image}
               alt={activeSystem.name}
@@ -252,11 +252,11 @@ export function PipeSystemSwitcher() {
               sizes="(max-width: 1024px) 100vw, 45vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-950/70 backdrop-blur-md border border-white/[0.08] flex items-center justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-bg-inner/70 backdrop-blur-md border border-border flex items-center justify-between">
               <div>
-                <p className="text-xs text-slate-400 font-mono">Precision Extrusion</p>
-                <p className="text-sm font-bold text-white font-mono">
+                <p className="text-xs text-text-muted font-mono">Precision Extrusion</p>
+                <p className="text-sm font-bold text-text-heading font-mono">
                   BIS / ISO 9001:2015 Certified
                 </p>
               </div>

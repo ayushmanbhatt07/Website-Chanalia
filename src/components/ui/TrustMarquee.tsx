@@ -29,10 +29,10 @@ const ROW2_ITEMS = [
 
 export function TrustMarquee() {
   return (
-    <div className="w-full bg-[#070B12] border-y border-white/[0.08] py-5 relative overflow-hidden select-none">
+    <div className="w-full bg-bg-outer-alt border-y border-border py-5 relative overflow-hidden select-none">
       {/* Subtle edge masks for sleek fade out */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none bg-gradient-to-r from-[#070B12] to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none bg-gradient-to-l from-[#070B12] to-transparent" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none bg-gradient-to-r from-bg-outer-alt to-transparent" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 z-10 pointer-events-none bg-gradient-to-l from-bg-outer-alt to-transparent" />
 
       <ScrollVelocityContainer className="flex flex-col gap-3.5">
         {/* Row 1: Leftward moving */}
@@ -40,11 +40,11 @@ export function TrustMarquee() {
           <div className="inline-flex items-center gap-8 px-4">
             {ROW1_ITEMS.map((item, index) => (
               <div key={index} className="inline-flex items-center gap-6">
-                <span className="font-heading text-lg sm:text-xl tracking-wider text-slate-200 uppercase whitespace-nowrap hover:text-sky-400 transition-colors">
+                <span className="font-heading text-lg sm:text-xl tracking-wider text-text-heading uppercase whitespace-nowrap hover:text-accent-primary transition-colors">
                   {item}
                 </span>
-                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-sky-500/15 border border-sky-400/30 text-sky-400">
-                  <Star className="w-2.5 h-2.5 fill-sky-400" />
+                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-accent-primary/15 border border-accent-primary/30 text-accent-primary">
+                  <Star className="w-2.5 h-2.5 fill-accent-primary" />
                 </span>
               </div>
             ))}
@@ -56,7 +56,7 @@ export function TrustMarquee() {
           <div className="inline-flex items-center gap-8 px-4">
             {ROW2_ITEMS.map((item, index) => (
               <div key={index} className="inline-flex items-center gap-6">
-                <span className="font-heading text-base sm:text-lg tracking-wider text-slate-400 uppercase whitespace-nowrap hover:text-white transition-colors">
+                <span className="font-heading text-base sm:text-lg tracking-wider text-text-muted uppercase whitespace-nowrap hover:text-text-heading transition-colors">
                   {item}
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80 shadow-[0_0_6px_#F59E0B]" />

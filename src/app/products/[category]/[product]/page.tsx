@@ -62,7 +62,7 @@ export default async function ProductDetailPage({
   return (
     <>
       {/* ── Breadcrumb Bar ── */}
-      <section className="bg-[#080B10] pt-28 pb-4 border-b border-white/[0.06]">
+      <section className="bg-bg-outer-alt pt-28 pb-4 border-b border-border">
         <Container>
           <Breadcrumb items={[
             { label: 'Home', href: '/' },
@@ -92,24 +92,24 @@ export default async function ProductDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-start">
           <Reveal>
             <Eyebrow accent={cat.accentHex}>Engineering Highlights</Eyebrow>
-            <h2 className="text-h2 font-heading text-white mt-1 mb-4 uppercase tracking-wide">
+            <h2 className="text-h2 font-heading text-text-heading mt-1 mb-4 uppercase tracking-wide">
               Material Standards & Reliability
             </h2>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
+            <p className="text-text-body text-sm leading-relaxed mb-6">
               Manufactured under strict ISO 9001:2015 quality surveillance. Engineered to eliminate thermal scaling, pressure drops, and premature failure across long commercial and domestic runs.
             </p>
 
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-white/[0.08] space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
+            <div className="p-4 rounded-xl bg-bg-inner/60 border border-border space-y-2.5">
+              <div className="flex items-center gap-2 text-xs font-mono text-text-body">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span>Standard: {product.standard}</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-2 text-xs font-mono text-text-body">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 <span>100% Virgin Polymer Composition</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-2 text-xs font-mono text-text-body">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 <span>Full Material Test Certificate (MTC) Included</span>
               </div>
             </div>
@@ -127,18 +127,18 @@ export default async function ProductDetailPage({
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
               <Eyebrow accent={cat.accentHex}>Technical Data & Dimensions</Eyebrow>
-              <h2 className="text-h2 font-heading text-white mt-1 uppercase tracking-wide">
+              <h2 className="text-h2 font-heading text-text-heading mt-1 uppercase tracking-wide">
                 Dimensional Specifications
               </h2>
             </div>
-            <p className="text-xs font-mono text-slate-500">
+            <p className="text-xs font-mono text-text-muted">
               All dimensions in mm / inches as specified
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="rounded-2xl border border-white/[0.08] overflow-hidden bg-slate-900/40 p-4 sm:p-6 backdrop-blur-md">
+          <div className="rounded-2xl border border-border overflow-hidden bg-bg-inner/40 p-4 sm:p-6 backdrop-blur-md">
             <SpecTabs
               tables={product.tables}
               accent={cat.accentHex}
@@ -152,7 +152,7 @@ export default async function ProductDetailPage({
         <Section bg="sink">
           <Reveal>
             <Eyebrow accent={cat.accentHex}>Visual Inspection</Eyebrow>
-            <h2 className="text-h2 font-heading text-white mt-1 mb-8">
+            <h2 className="text-h2 font-heading text-text-heading mt-1 mb-8">
               Specimen Gallery
             </h2>
           </Reveal>
@@ -189,7 +189,7 @@ export default async function ProductDetailPage({
             <div className="flex items-center justify-between mb-8">
               <div>
                 <Eyebrow accent={cat.accentHex}>Related Fittings & Pipes</Eyebrow>
-                <h2 className="text-h2 font-heading text-white mt-1 uppercase tracking-wide">
+                <h2 className="text-h2 font-heading text-text-heading mt-1 uppercase tracking-wide">
                   More in {cat.name}
                 </h2>
               </div>
@@ -220,18 +220,18 @@ export default async function ProductDetailPage({
       )}
 
       {/* ── Compact Contact Strip ── */}
-      <section className="border-t border-white/[0.08] bg-[#0A0F1D] py-8">
+      <section className="border-t border-border bg-bg-outer py-8">
         <Container className="flex flex-wrap items-center justify-between gap-6">
           <div>
-            <p className="text-sm font-bold text-white">Need contractor rate cards or custom dispatch?</p>
-            <p className="text-xs text-slate-400 font-mono">Reva Polyplast Sales Desk • Metoda G.I.D.C., Rajkot</p>
+            <p className="text-sm font-bold text-text-heading">Need contractor rate cards or custom dispatch?</p>
+            <p className="text-xs text-text-muted font-mono">Reva Polyplast Sales Desk • Metoda G.I.D.C., Rajkot</p>
           </div>
           <div className="flex items-center gap-4">
             <a
               href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
-              className="flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-white px-4 py-2 rounded-xl bg-slate-900 border border-white/[0.08]"
+              className="flex items-center gap-2 text-xs font-mono text-text-body hover:text-text-heading px-4 py-2 rounded-xl bg-bg-inner border border-border"
             >
-              <Phone className="w-3.5 h-3.5 text-sky-400" />
+              <Phone className="w-3.5 h-3.5 text-accent-primary" />
               {site.contact.phone}
             </a>
             <a

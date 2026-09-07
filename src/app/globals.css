@@ -1,32 +1,26 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Foundation — luxury dark theme for premium industrial flagship */
-  --color-rio-ink: #F0F4F8;
-  --color-rio-slate: #94A3B8;
-  --color-rio-mute: #64748B;
-  --color-rio-line: #1E293B;
-  --color-rio-line-subtle: rgba(255, 255, 255, 0.08);
-  --color-rio-paper: #080B10;
-  --color-rio-surface: #0F172A;
-  --color-rio-sink: #0B1120;
+  /* Light Theme Tokens */
+  --color-bg-outer: #FFFFFF;
+  --color-bg-outer-alt: #F4F6F8;
+  --color-bg-inner: #FFFFFF;
+  --color-bg-inner-hover: #F4F6F8;
+  --color-border: #E2E5EA;
+  --color-text-heading: #10151F;
+  --color-text-body: #4B5563;
+  --color-text-muted: #838B99;
+  --color-accent-primary: #16305C;
+  --color-accent-primary-hover: #0F2247;
+  --color-accent-primary-fg: #FFFFFF;
+  --color-accent-logo: #f97316;
+  --color-status-success: #22c55e;
 
-  /* Brand */
-  --color-rio-blue: #38BDF8;
-  --color-rio-blue-dark: #0284C7;
-  --color-rio-blue-tint: rgba(56, 189, 248, 0.12);
-  --color-rio-blue-glow: rgba(56, 189, 248, 0.25);
-
-  /* Product-line accents */
+  /* Product-line accents (Keep as-is for product consistency) */
   --color-cat-cpvc: #F59E0B;
-  --color-cat-upvc: #38BDF8;
+  --color-cat-upvc: var(--color-accent-primary);
   --color-cat-swr: #94A3B8;
   --color-cat-agri: #10B981;
-
-  /* Dark section (footer, select bands) */
-  --color-rio-night: #030712;
-  --color-rio-night-2: #090D16;
-  --color-rio-night-line: #1F2937;
 
   /* Fonts */
   --font-heading: var(--font-heading-var), 'Bebas Neue', sans-serif;
@@ -37,7 +31,7 @@
 
 /* ── Base ── */
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -47,18 +41,18 @@ html {
 }
 
 body {
-  background-color: var(--color-rio-paper);
-  color: var(--color-rio-ink);
+  background-color: var(--color-bg-outer);
+  color: var(--color-text-body);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
-  selection-background-color: var(--color-rio-blue);
-  selection-color: #000;
+  selection-background-color: var(--color-accent-primary);
+  selection-color: #FFFFFF;
 }
 
 ::selection {
-  background-color: rgba(56, 189, 248, 0.35);
-  color: #FFFFFF;
+  background-color: rgba(22, 48, 92, 0.25);
+  color: #10151F;
 }
 
 /* ── Custom Industrial Scrollbar ── */
@@ -67,21 +61,21 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #080B10;
+  background: var(--color-bg-outer-alt);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: var(--color-border);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #38BDF8;
+  background: var(--color-text-muted);
 }
 
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.05;
-  color: var(--color-rio-ink);
+  color: var(--color-text-heading);
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
@@ -167,25 +161,25 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Focus ── */
 *:focus-visible {
-  outline: 2px solid var(--color-rio-blue);
+  outline: 2px solid var(--color-accent-primary);
   outline-offset: 2px;
 }
 
 /* ── 3D & Glassmorphic Utilities ── */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 12px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* 3D Floating Stage with Radial Backlight Blur */
@@ -203,10 +197,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .stage-3d-box:hover {
   transform: translateY(-4px) scale(1.015);
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: rgba(22, 48, 92, 0.4);
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.85),
-    0 0 25px -2px rgba(56, 189, 248, 0.25),
+    0 0 25px -2px rgba(22, 48, 92, 0.25),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -228,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Ambient Radial Mesh */
 .bg-radial-mesh {
   background-image: 
-    radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.18), transparent 70%),
+    radial-gradient(circle at 50% -20%, rgba(22, 48, 92, 0.18), transparent 70%),
     radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.1), transparent 55%),
     radial-gradient(circle at 10% 80%, rgba(16, 185, 129, 0.08), transparent 55%);
 }
@@ -250,22 +244,22 @@ th, td {
 th {
   font-weight: 600;
   white-space: nowrap;
-  background-color: rgba(15, 23, 42, 0.9);
-  color: var(--color-rio-slate);
-  border-bottom: 1px solid var(--color-rio-line);
+  background-color: var(--color-bg-inner-hover);
+  color: var(--color-text-heading);
+  border-bottom: 1px solid var(--color-border);
 }
 
 td {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* Zebra rows */
 tbody tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.015);
+  background-color: var(--color-bg-inner);
 }
 
 tbody tr:hover {
-  background-color: rgba(56, 189, 248, 0.05);
+  background-color: rgba(22, 48, 92, 0.05);
 }
 
 /* ── Reduced motion ── */

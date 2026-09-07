@@ -18,12 +18,12 @@ export function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Link href={`/products/${category.slug}`} className="block group select-none">
       <SpotlightCard
-        className="stage-3d-box h-full flex flex-col overflow-hidden bg-[#0A0F1D]/85 border-white/[0.1] hover:border-white/[0.22] rounded-2xl"
+        className="stage-3d-box h-full flex flex-col overflow-hidden bg-bg-inner border-border hover:border-text-muted rounded-2xl"
         spotlightColor={`${category.accentHex}28`}
         borderGlowColor={`${category.accentHex}65`}
       >
         {/* 3D Image Banner with Halo Backlight Blur */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+        <div className="relative aspect-[16/10] overflow-hidden bg-bg-outer">
           {/* Ambient 3D Halo Glow */}
           <div
             className="halo-3d-glow"
@@ -42,7 +42,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
           <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/[0.1] to-transparent pointer-events-none" />
 
           {/* Bottom vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
           {/* Category Standard Pill */}
           <div className="absolute top-3.5 left-3.5 z-10">
@@ -50,7 +50,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
               className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] font-mono font-semibold rounded-lg backdrop-blur-md border uppercase shadow-lg"
               style={{
                 color: category.accentHex,
-                backgroundColor: 'rgba(10, 15, 29, 0.85)',
+                backgroundColor: 'rgba(255, 255, 255, 0.85)',
                 borderColor: `${category.accentHex}40`,
               }}
             >
@@ -63,16 +63,16 @@ export function CategoryCard({ category }: CategoryCardProps) {
         {/* Content Box */}
         <div className="p-6 flex-1 flex flex-col justify-between relative z-10">
           <div>
-            <h3 className="text-xl font-bold font-heading text-white mb-2 group-hover:text-sky-300 transition-colors">
+            <h3 className="text-xl font-bold font-heading text-text-heading mb-2 group-hover:text-accent-primary transition-colors">
               {category.name}
             </h3>
-            <p className="text-sm text-slate-400 line-clamp-2 leading-relaxed mb-4">
+            <p className="text-sm text-text-body line-clamp-2 leading-relaxed mb-4">
               {category.description}
             </p>
           </div>
 
-          <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-            <span className="text-xs font-mono text-slate-500">
+          <div className="pt-4 border-t border-border flex items-center justify-between">
+            <span className="text-xs font-mono text-text-muted">
               {productCount} SKUs Cataloged
             </span>
             <span

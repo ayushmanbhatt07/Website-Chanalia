@@ -21,7 +21,7 @@ export function ProductHero({
   standard,
   sizeRange,
   image,
-  accent = '#38BDF8',
+  accent = 'var(--color-accent-primary)',
   categoryName,
 }: ProductHeroProps) {
   const whatsappText = encodeURIComponent(
@@ -65,7 +65,7 @@ export function ProductHero({
 
           {sizeRange && (
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-white/[0.06] text-xs font-mono text-slate-300 mb-6">
-              <FileSpreadsheet className="w-4 h-4 text-sky-400" />
+              <FileSpreadsheet className="w-4 h-4 text-accent-primary" />
               <span>Available Range: <strong className="text-white font-semibold">{sizeRange}</strong></span>
             </div>
           )}
@@ -118,7 +118,7 @@ export function ProductHero({
 
           <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-slate-950/75 backdrop-blur-md border border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-slate-300">
             <span>Genuine Factory Inspection</span>
-            <span className="text-sky-400">100% Tested</span>
+            <span className="text-accent-primary">100% Tested</span>
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ export default async function CategoryPage({
   return (
     <>
       {/* ── Category Header with Ambient Glow ── */}
-      <section className="relative bg-[#080B10] pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden border-b border-white/[0.08]">
+      <section className="relative bg-bg-outer-alt pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden border-b border-border">
         {/* Ambient colored aura */}
         <div
           className="absolute -top-40 right-10 w-[500px] h-[500px] rounded-full blur-[140px] opacity-25 pointer-events-none"
@@ -62,7 +62,7 @@ export default async function CategoryPage({
           className="object-cover opacity-10 filter grayscale"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080B10] via-[#080B10]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-outer-alt via-bg-outer-alt/80 to-transparent" />
 
         <Container className="relative z-10">
           <Breadcrumb
@@ -86,11 +86,11 @@ export default async function CategoryPage({
             </div>
 
             <h1
-              className="text-display-lg font-heading text-white mb-4 leading-tight uppercase tracking-wider"
+              className="text-display-lg font-heading text-text-heading mb-4 leading-tight uppercase tracking-wider"
             >
               {cat.name}
             </h1>
-            <p className="text-slate-300 text-base sm:text-lg prose-width leading-relaxed mb-6">
+            <p className="text-text-body text-base sm:text-lg prose-width leading-relaxed mb-6">
               {cat.description}
             </p>
 
@@ -99,9 +99,9 @@ export default async function CategoryPage({
               <StandardsBadgeRow standards={cat.standards} />
               <Link
                 href="/contact"
-                className="text-xs font-mono font-semibold text-slate-300 hover:text-white flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.1] transition-colors"
+                className="text-xs font-mono font-semibold text-text-muted hover:text-text-heading flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-bg-inner/50 border border-border transition-colors"
               >
-                <FileText className="w-3.5 h-3.5 text-sky-400" />
+                <FileText className="w-3.5 h-3.5 text-accent-primary" />
                 Request Technical Spec Sheet
               </Link>
             </div>
@@ -115,12 +115,12 @@ export default async function CategoryPage({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
               <Eyebrow accent={cat.accentHex}>Cataloged Products</Eyebrow>
-              <h2 className="text-h2 font-heading text-white mt-1 uppercase tracking-wide">
+              <h2 className="text-h2 font-heading text-text-heading mt-1 uppercase tracking-wide">
                 {products.length} Products & Fitting Types
               </h2>
             </div>
-            <div className="text-xs font-mono text-slate-400">
-              Standard: <span className="text-slate-200 font-semibold">{cat.standards.join(' • ')}</span>
+            <div className="text-xs font-mono text-text-muted">
+              Standard: <span className="text-text-heading font-semibold">{cat.standards.join(' • ')}</span>
             </div>
           </div>
         </Reveal>

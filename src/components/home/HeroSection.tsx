@@ -26,7 +26,7 @@ const HERO_SLIDES = [
     description:
       'Engineered CPVC, UPVC, SWR & Agricultural piping systems crafted from 100% virgin polymers for leak-proof longevity.',
     stat: '68+ Precision Fittings',
-    accentColor: '#38BDF8',
+    accentColor: 'var(--color-accent-primary)',
   },
   {
     image: images.applications.industrial,
@@ -78,15 +78,14 @@ export function HeroSection() {
             src={slide.image}
             alt={slide.title}
             fill
-            className="object-cover object-center brightness-[0.38] contrast-[1.15]"
+            className="object-cover object-center"
             priority
             sizes="100vw"
           />
 
           {/* Luxury Film Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080B10] via-[#080B10]/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080B10]/90 via-[#080B10]/40 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(8,11,16,0.6)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -116,7 +115,7 @@ export function HeroSection() {
           />
           <span>{slide.tag}</span>
           <span className="text-white/30">•</span>
-          <span className="text-sky-400 font-semibold">{slide.stat}</span>
+          <span className="text-white font-semibold">{slide.stat}</span>
         </motion.div>
 
         {/* Primary Impact Headline with Bebas Neue font */}
@@ -127,15 +126,13 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-6 max-w-4xl"
         >
-          <h1 className="font-heading text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.92] tracking-wider text-white select-none">
+          <h1 
+            className="font-heading text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.92] tracking-wider select-none"
+            style={{ color: '#FFFFFF', textShadow: '0 2px 16px rgba(0,0,0,0.55)' }}
+          >
             {slide.title}
             <br />
-            <span
-              className="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-sky-200 to-white"
-              style={{
-                textShadow: '0 0 40px rgba(56, 189, 248, 0.3)',
-              }}
-            >
+            <span className="text-[#FFFFFF]">
               {slide.highlight}
             </span>
           </h1>
@@ -147,7 +144,8 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-slate-300 text-base sm:text-lg md:text-xl font-body max-w-2xl leading-relaxed mb-10 text-balance"
+          className="text-[#F1F3F5] text-base sm:text-lg md:text-xl font-body max-w-2xl leading-relaxed mb-10 text-balance"
+          style={{ textShadow: '0 2px 16px rgba(0,0,0,0.55)' }}
         >
           {slide.description}
         </motion.p>
@@ -161,7 +159,7 @@ export function HeroSection() {
         >
           <Link
             href="/products"
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-sky-400 hover:bg-sky-300 text-slate-950 font-heading text-lg sm:text-xl tracking-wider uppercase transition-all duration-300 shadow-[0_0_30px_rgba(56,189,248,0.4)] hover:shadow-[0_0_45px_rgba(56,189,248,0.7)] hover:scale-105 active:scale-95 group font-bold"
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-accent-primary hover:bg-accent-primary-hover text-white font-heading text-lg sm:text-xl tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group font-bold"
           >
             <span>Explore 68+ Products</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -178,10 +176,10 @@ export function HeroSection() {
             href={site.contact.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-4 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-mono text-sm border border-emerald-500/30 hover:border-emerald-400/60 transition-all"
+            className="hidden sm:inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white font-mono text-sm transition-all shadow-md hover:shadow-lg"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>WhatsApp Enquiry</span>
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            <span className="font-semibold">WhatsApp Enquiry</span>
           </a>
         </motion.div>
 
@@ -193,8 +191,8 @@ export function HeroSection() {
               onClick={() => setCurrentSlide(i)}
               className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                 i === currentSlide
-                  ? 'w-12 bg-sky-400 shadow-[0_0_10px_#38BDF8]'
-                  : 'w-4 bg-white/20 hover:bg-white/40'
+                  ? 'w-12 bg-accent-primary'
+                  : 'w-4 bg-white/30 hover:bg-white/50'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -204,7 +202,7 @@ export function HeroSection() {
         {/* Feature Badges Footer Strip */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl pt-6 border-t border-white/[0.08] text-left">
           <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.02]">
-            <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
             <span className="text-xs font-mono text-slate-300">100% Virgin Polymer</span>
           </div>
           <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.02]">

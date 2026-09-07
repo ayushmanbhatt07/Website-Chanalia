@@ -88,7 +88,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       >
         {/* Search Header */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-white/[0.08] bg-slate-900/50">
-          <Search className="w-5 h-5 text-sky-400 shrink-0" />
+          <Search className="w-5 h-5 text-accent-primary shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -150,7 +150,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                   onClick={onClose}
                   className={`flex items-center justify-between p-3 rounded-xl transition-all ${
                     isSelected
-                      ? 'bg-sky-500/10 border border-sky-500/30 text-white'
+                      ? 'bg-accent-primary/10 border border-accent-primary/30 text-white'
                       : 'hover:bg-white/[0.04] text-slate-300 border border-transparent'
                   }`}
                   onMouseEnter={() => setSelectedIndex(idx)}
@@ -179,9 +179,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                         <span
                           className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded border"
                           style={{
-                            color: cat?.accentHex || '#38BDF8',
-                            borderColor: `${cat?.accentHex || '#38BDF8'}40`,
-                            backgroundColor: `${cat?.accentHex || '#38BDF8'}15`,
+                            color: cat?.accentHex || 'var(--color-accent-primary)',
+                            borderColor: `${cat?.accentHex || 'var(--color-accent-primary)'}40`,
+                            backgroundColor: `${cat?.accentHex || 'var(--color-accent-primary)'}15`,
                           }}
                         >
                           {cat?.name.split(' ')[0] || product.category}

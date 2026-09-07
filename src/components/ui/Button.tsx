@@ -13,7 +13,7 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    'bg-[var(--color-rio-blue)] text-white hover:bg-[var(--color-rio-blue-dark)] border border-transparent',
+    'bg-[var(--color-rio-blue)] text-[#0F1720] hover:bg-[var(--color-rio-blue-dark)] border border-transparent',
   secondary:
     'bg-transparent text-[var(--color-rio-blue)] border border-[var(--color-rio-blue)] hover:bg-[var(--color-rio-blue-tint)]',
   ghost:

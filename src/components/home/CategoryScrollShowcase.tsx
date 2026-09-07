@@ -74,9 +74,9 @@ const SHOWCASE_STEPS: CategoryShowcaseStep[] = [
     shortName: 'UPVC System',
     tagline: 'High-Pressure Heavy-Duty Cold Water Distribution',
     standard: 'ASTM D-1785 & ASTM D-2467 (Sch 40 / Sch 80)',
-    accentHex: '#38BDF8',
-    gradientClass: 'from-sky-500 to-cyan-400',
-    glowClass: 'bg-sky-500/15',
+    accentHex: 'var(--color-accent-primary)',
+    gradientClass: 'from-accent-primary to-accent-primary',
+    glowClass: 'bg-accent-primary/15',
     image: '/images/categories/cat-upvc.jpg',
     secondaryImage: '/images/products/upvc-pipes-samples-standing.jpg',
     description:
@@ -188,7 +188,7 @@ function SegmentBar({
           </span>
           <span
             className="text-xs font-heading tracking-wider uppercase truncate transition-colors"
-            style={{ color: isActive ? '#FFFFFF' : '#94A3B8' }}
+            style={{ color: isActive ? 'var(--color-text-heading)' : 'var(--color-text-muted)' }}
           >
             {step.shortName}
           </span>
@@ -202,10 +202,10 @@ function SegmentBar({
       </div>
 
       {/* Progress Track & Animated Fill Bar */}
-      <div className="h-1.5 sm:h-2 w-full rounded-full bg-white/[0.08] overflow-hidden relative backdrop-blur-sm border border-white/[0.04]">
+      <div className="h-1.5 sm:h-2 w-full rounded-full bg-bg-inner overflow-hidden relative backdrop-blur-sm border border-border">
         <motion.div
           style={{ width }}
-          className={`h-full rounded-full bg-gradient-to-r ${step.gradientClass} shadow-[0_0_12px_rgba(56,189,248,0.5)]`}
+          className={`h-full rounded-full bg-gradient-to-r ${step.gradientClass} shadow-md`}
         />
       </div>
     </button>
@@ -254,13 +254,13 @@ function StoryTextBeat({
           <span>{step.standard}</span>
         </span>
 
-        <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
+        <span className="text-xs font-mono text-text-muted uppercase tracking-widest">
           {products.length} Products Available
         </span>
       </div>
 
       {/* Main Headline */}
-      <h3 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-white tracking-wider uppercase leading-[0.95] mb-3">
+      <h3 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-text-heading tracking-wider uppercase leading-[0.95] mb-3">
         {step.name}
       </h3>
 
@@ -273,14 +273,14 @@ function StoryTextBeat({
       </p>
 
       {/* Description */}
-      <p className="text-slate-300 text-sm sm:text-base font-body leading-relaxed mb-6 line-clamp-3 sm:line-clamp-none">
+      <p className="text-text-body text-sm sm:text-base font-body leading-relaxed mb-6 line-clamp-3 sm:line-clamp-none">
         {step.description}
       </p>
 
       {/* Key Engineering Highlights */}
       <div className="space-y-2 mb-8 border-l-2 pl-4 py-1" style={{ borderColor: `${step.accentHex}50` }}>
         {step.highlights.map((item, idx) => (
-          <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+          <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-text-body">
             <CheckCircle2
               className="w-4 h-4 shrink-0 mt-0.5"
               style={{ color: step.accentHex }}
@@ -294,18 +294,18 @@ function StoryTextBeat({
       <div className="flex items-center gap-3">
         <Link
           href={`/products/${step.slug}`}
-          className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-slate-950 font-heading text-base sm:text-lg tracking-wider uppercase transition-all duration-300 font-bold shadow-[0_0_25px_rgba(56,189,248,0.3)] hover:scale-105 active:scale-95 group"
+          className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-white font-heading text-base sm:text-lg tracking-wider uppercase transition-all duration-300 font-bold shadow-md hover:scale-105 active:scale-95 group"
           style={{
             backgroundColor: step.accentHex,
           }}
         >
           <span>Explore {step.shortName} Catalog</span>
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-slate-950" />
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-white" />
         </Link>
 
         <Link
           href="/products"
-          className="px-4 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.08] font-heading text-base tracking-wider uppercase transition-colors"
+          className="px-4 py-3 rounded-full bg-bg-inner hover:bg-bg-inner-hover text-text-body hover:text-text-heading border border-border font-heading text-base tracking-wider uppercase transition-colors"
         >
           All Categories
         </Link>
@@ -341,7 +341,7 @@ function StoryVisualBeat({
       style={{
         pointerEvents: isVisible ? 'auto' : 'none',
       }}
-      className="absolute inset-0 rounded-3xl overflow-hidden border border-white/[0.12] bg-[#0A0E18] shadow-[0_24px_70px_rgba(0,0,0,0.85)]"
+      className="absolute inset-0 rounded-3xl overflow-hidden border border-border bg-bg-inner shadow-2xl"
     >
       {/* Category Ambient Radial Halo Glow */}
       <div
@@ -354,24 +354,24 @@ function StoryVisualBeat({
           src={step.image}
           alt={step.name}
           fill
-          className="object-cover object-center brightness-[0.85] contrast-[1.1] transition-transform duration-700 hover:scale-105"
+          className="object-cover object-center transition-transform duration-700 hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority={index === 0}
         />
 
         {/* Cinematic Vignette Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080B10] via-transparent to-black/30 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080B10]/60 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-outer-alt via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-outer-alt/60 via-transparent to-transparent pointer-events-none" />
 
         {/* Floating Spec Panel Overlay */}
-        <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 rounded-2xl bg-[#080D1A]/85 backdrop-blur-2xl border border-white/[0.12] shadow-2xl">
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08]">
+        <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 rounded-2xl bg-bg-inner/85 backdrop-blur-2xl border border-border shadow-2xl">
+          <div className="flex items-center justify-between pb-3 mb-3 border-b border-border">
             <div className="flex items-center gap-2">
               <span
                 className="w-2.5 h-2.5 rounded-full"
                 style={{ backgroundColor: step.accentHex }}
               />
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
+              <span className="text-xs font-mono uppercase tracking-wider text-text-heading font-semibold">
                 Factory Test Specifications
               </span>
             </div>
@@ -385,37 +385,37 @@ function StoryVisualBeat({
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
             <div>
-              <span className="text-[10px] font-mono text-slate-400 uppercase block">
+              <span className="text-[10px] font-mono text-text-muted uppercase block">
                 Temp Rating
               </span>
-              <span className="text-xs font-mono text-white font-semibold truncate block">
+              <span className="text-xs font-mono text-text-heading font-semibold truncate block">
                 {step.specs.temp}
               </span>
             </div>
 
             <div>
-              <span className="text-[10px] font-mono text-slate-400 uppercase block">
+              <span className="text-[10px] font-mono text-text-muted uppercase block">
                 Pressure Class
               </span>
-              <span className="text-xs font-mono text-white font-semibold truncate block">
+              <span className="text-xs font-mono text-text-heading font-semibold truncate block">
                 {step.specs.pressure}
               </span>
             </div>
 
             <div>
-              <span className="text-[10px] font-mono text-slate-400 uppercase block">
+              <span className="text-[10px] font-mono text-text-muted uppercase block">
                 Joint Type
               </span>
-              <span className="text-xs font-mono text-white font-semibold truncate block">
+              <span className="text-xs font-mono text-text-heading font-semibold truncate block">
                 {step.specs.joint}
               </span>
             </div>
 
             <div>
-              <span className="text-[10px] font-mono text-slate-400 uppercase block">
+              <span className="text-[10px] font-mono text-text-muted uppercase block">
                 Service Life
               </span>
-              <span className="text-xs font-mono text-emerald-400 font-semibold truncate block">
+              <span className="text-xs font-mono text-status-success font-semibold truncate block">
                 {step.specs.life}
               </span>
             </div>
@@ -458,7 +458,7 @@ export function CategoryScrollShowcase() {
   };
 
   return (
-    <section className="relative bg-[#080B10] border-t border-b border-white/[0.08]">
+    <section className="relative bg-bg-outer-alt border-t border-b border-border">
       {/* Outer Multi-Screen Scroll Driver */}
       <div
         ref={containerRef}
@@ -471,19 +471,19 @@ export function CategoryScrollShowcase() {
             <div className="w-full pb-4 sm:pb-6">
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono uppercase tracking-widest text-sky-400 font-semibold mb-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-inner border border-border text-[11px] font-mono uppercase tracking-widest text-accent-primary font-semibold mb-2">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Engineered Product Categories</span>
                   </div>
-                  <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-white tracking-wider uppercase">
+                  <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-text-heading tracking-wider uppercase">
                     Precision Polymer Solutions
                   </h2>
                 </div>
 
                 <div className="text-right hidden sm:block">
-                  <span className="text-xs font-mono text-slate-400">
+                  <span className="text-xs font-mono text-text-muted">
                     Scroll or click bar to inspect systems •{' '}
-                    <span className="text-sky-400 font-bold">
+                    <span className="text-accent-primary font-bold">
                       0{activeIndex + 1} / 0{SHOWCASE_STEPS.length}
                     </span>
                   </span>
@@ -491,7 +491,7 @@ export function CategoryScrollShowcase() {
               </div>
 
               {/* 4 Segmented Progress Fill Bars (EnviroWealth Style) */}
-              <div className="grid grid-cols-4 gap-2 sm:gap-4 p-2 sm:p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-xl">
+              <div className="grid grid-cols-4 gap-2 sm:gap-4 p-2 sm:p-3 rounded-2xl bg-bg-inner border border-border backdrop-blur-xl">
                 {SHOWCASE_STEPS.map((step, i) => (
                   <SegmentBar
                     key={step.slug}
@@ -538,19 +538,19 @@ export function CategoryScrollShowcase() {
             </div>
 
             {/* ── Bottom Ambient Indicator Strip ── */}
-            <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500">
+            <div className="pt-3 border-t border-border flex items-center justify-between text-[11px] font-mono text-text-muted">
               <span className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-status-success" />
                 ASTM & BIS Certified Heavy-Duty Manufacturing • Rajkot GIDC
               </span>
 
               <div className="flex items-center gap-3">
-                <span className="text-slate-400 hidden sm:inline">
+                <span className="text-text-muted hidden sm:inline">
                   Step {activeIndex + 1} of {SHOWCASE_STEPS.length}: {SHOWCASE_STEPS[activeIndex].name}
                 </span>
                 <Link
                   href={`/products/${SHOWCASE_STEPS[activeIndex].slug}`}
-                  className="text-sky-400 hover:text-sky-300 transition-colors flex items-center gap-1 font-bold uppercase"
+                  className="text-accent-primary hover:text-accent-primary/80 transition-colors flex items-center gap-1 font-bold uppercase"
                 >
                   <span>View SKUs</span>
                   <ArrowRight className="w-3 h-3" />
