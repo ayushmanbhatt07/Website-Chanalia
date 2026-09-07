@@ -111,7 +111,7 @@ export function PillNav() {
             aria-label="RIO Pipes & Fittings Home"
           >
             <Image
-              src="/images/logo.webp"
+              src="/images/logo.jpg"
               alt="RIO Pipes & Fittings"
               width={130}
               height={44}
@@ -363,7 +363,7 @@ export function PillNav() {
               <div className="flex items-center justify-between pb-4 border-b border-border">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
                   <Image
-                    src="/images/logo.webp"
+                    src="/images/logo.jpg"
                     alt="RIO Pipes & Fittings"
                     width={120}
                     height={40}

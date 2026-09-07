@@ -40,7 +40,7 @@ export function SiteFooter() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/images/logo.webp"
+                src="/images/logo.jpg"
                 alt="RIO Pipes & Fittings"
                 width={140}
                 height={48}

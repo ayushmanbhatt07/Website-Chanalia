@@ -61,7 +61,7 @@ export function SiteHeader() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
             <Image
-              src="/images/logo.webp"
+              src="/images/logo.jpg"
               alt="RIO Pipes & Fittings"
               width={140}
               height={48}
